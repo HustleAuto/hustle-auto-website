@@ -10,6 +10,7 @@
     "lint": "next lint",
     "format:fix": "prettier . --write",
     "format:check": "prettier . --check",
+    "spell:check": "cspell .",
     "pre-commit": "lint-staged"
   },
   "dependencies": {
