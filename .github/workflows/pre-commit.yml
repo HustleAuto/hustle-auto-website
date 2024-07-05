@@ -21,4 +21,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Run Pre-commit
-        run: .husky/pre-commit
+        run: pnpm pre-commit
