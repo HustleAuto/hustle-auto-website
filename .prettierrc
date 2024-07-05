@@ -1,5 +1,5 @@
 # print trailing commas wherever possible in multi-line comma-separated syntactic structures
-trailingComma: "all"
+trailingComma: 'all'
 
 # the number of spaces per indentation-level
 tabWidth: 2
