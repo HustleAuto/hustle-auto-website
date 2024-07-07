@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 
 import './globals.css';
+import Navbar from '@/components/Navbar';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({
           GeistMono.variable,
         )}
       >
+        <Navbar />
         {children}
       </body>
     </html>
