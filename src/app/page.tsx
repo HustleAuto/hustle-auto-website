@@ -1,5 +1,4 @@
 import BeholdWidget from '@behold/react';
-import Image from 'next/image';
 
 import HustleAutoLogo from '@/components/images/HustleAutoLogo';
 import { Button } from '@/components/ui/button';
@@ -35,8 +34,6 @@ export default function Home() {
           <BeholdWidget feedId={feedId} />
         </div>
       </section>
-
-      <section className="my-20 py-16">We strive</section>
     </main>
   );
 }

@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
 
 import './globals.css';
+import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import { cn } from '@/lib/utils';
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
