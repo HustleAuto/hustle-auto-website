@@ -5,6 +5,8 @@ import FacebookLogo from '@/components/images/FacebookLogo';
 import GoogleLogo from '@/components/images/GoogleLogo';
 import { Button } from '@/components/ui/button';
 
+import { Separator } from './ui/separator';
+
 export default function Footer() {
   return (
     <section className="mt-20 py-16 bg-primary text-primary-foreground px-3 text-center space-y-6">
@@ -47,6 +49,9 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+      </article>
+      <article className="py-3">
+        <Separator />
       </article>
       <article>
         <div className="">
