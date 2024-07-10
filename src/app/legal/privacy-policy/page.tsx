@@ -1,4 +1,4 @@
-export default function page() {
+export default function Page() {
   const HUSTLE = {
     COMPANY: {
       NAME: 'Hustle Automotive',
