@@ -4,7 +4,7 @@ export default function Page() {
   const { COMPANY } = getHustleSettings();
 
   return (
-    <main className="prose container mx-auto my-20">
+    <main className="container mx-auto my-20 prose">
       <h1 id="privacy-notice">PRIVACY NOTICE</h1>
       <p>Last updated February 03, 2023</p>
       <p>

@@ -9,12 +9,12 @@ export default function Home() {
 
   return (
     <main className="">
-      <section className="space-y-6 my-20">
+      <section className="my-20 space-y-6">
         <div>
-          <HustleAutoLogo className="w-60 mx-auto" />
+          <HustleAutoLogo className="mx-auto w-60" />
         </div>
         <div className="text-center">
-          <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          <h1 className="text-4xl font-extrabold tracking-tight scroll-m-20 lg:text-5xl">
             Hustle for Superior Detailing
           </h1>
         </div>
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="my-20 py-16 bg-secondary">
+      <section className="py-16 my-20 bg-secondary">
         <div className="px-3">
           <BeholdWidget feedId={feedId} />
         </div>

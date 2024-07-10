@@ -4,7 +4,7 @@ export default function Page() {
   const { COMPANY } = getHustleSettings();
 
   return (
-    <main className="prose container mx-auto my-20">
+    <main className="container mx-auto my-20 prose">
       <h1 id="terms-and-conditions">TERMS AND CONDITIONS</h1>
       <p>Last updated February 03, 2023</p>
       <h2 id="agreement-to-terms">AGREEMENT TO TERMS</h2>
