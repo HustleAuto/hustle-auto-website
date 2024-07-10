@@ -1,27 +1,19 @@
+import { getHustleSettings } from '@/hustleSettings';
+
 export default function Page() {
-  const HUSTLE = {
-    COMPANY: {
-      NAME: 'Hustle Automotive',
-      URL: 'https://hustleauto.com',
-      ADDRESS: '15 Skyview Ranch Blvd Calgary, Alberta T3N0H1 Canada',
-      PHONE_NUMBER: '(587) 436 - 0142',
-      EMAIL: 'hustleaservices@gmail.com',
-      DOMAIN: 'hustleauto.com',
-    },
-  };
+  const { COMPANY } = getHustleSettings();
 
   return (
     <main className="prose container mx-auto my-20">
       <h1 id="cookie-policy">COOKIE POLICY</h1>
       <p>Last updated February 03, 2023</p>
       <p>
-        This Cookie Policy explains how {HUSTLE.COMPANY.NAME}{' '}
-        (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, and
-        &quot;our&quot;) uses cookies and similar technologies to recognize you
-        when you visit our websites at{' '}
-        <a href={HUSTLE.COMPANY.URL}>{HUSTLE.COMPANY.URL}</a>,
-        (&quot;Websites&quot;). It explains what these technologies are and why
-        we use them, as well as your rights to control our use of them.
+        This Cookie Policy explains how {COMPANY.NAME} (&quot;Company&quot;,
+        &quot;we&quot;, &quot;us&quot;, and &quot;our&quot;) uses cookies and
+        similar technologies to recognize you when you visit our websites at{' '}
+        <a href={COMPANY.URL}>{COMPANY.URL}</a>, (&quot;Websites&quot;). It
+        explains what these technologies are and why we use them, as well as
+        your rights to control our use of them.
       </p>
       <p>
         In some cases we may use cookies to collect personal information, or
@@ -36,8 +28,8 @@ export default function Page() {
         efficiently, as well as to provide reporting information.
       </p>
       <p>
-        Cookies set by the website owner (in this case, {HUSTLE.COMPANY.NAME})
-        are called &quot;first party cookies&quot;. Cookies set by parties other
+        Cookies set by the website owner (in this case, {COMPANY.NAME}) are
+        called &quot;first party cookies&quot;. Cookies set by parties other
         than the website owner are called &quot;third party cookies&quot;. Third
         party cookies enable third party features or functionality to be
         provided on or through the website (e.g. like advertising, interactive
@@ -175,7 +167,7 @@ export default function Page() {
           </tr>
           <tr>
             <td>Provider</td>
-            <td>.{HUSTLE.COMPANY.DOMAIN}</td>
+            <td>.{COMPANY.DOMAIN}</td>
           </tr>
           <tr>
             <td>Service</td>
@@ -224,7 +216,7 @@ export default function Page() {
           </tr>
           <tr>
             <td>Provider</td>
-            <td>.{HUSTLE.COMPANY.DOMAIN}</td>
+            <td>.{COMPANY.DOMAIN}</td>
           </tr>
           <tr>
             <td>Service</td>
@@ -330,11 +322,11 @@ export default function Page() {
       </h2>
       <p>
         If you have any questions about our use of cookies or other
-        technologies, please email us at {HUSTLE.COMPANY.EMAIL} or by post to:
+        technologies, please email us at {COMPANY.EMAIL} or by post to:
       </p>
-      <p>{HUSTLE.COMPANY.NAME}</p>
-      <p>{HUSTLE.COMPANY.ADDRESS}</p>
-      <p>Phone: {HUSTLE.COMPANY.PHONE_NUMBER}</p>
+      <p>{COMPANY.NAME}</p>
+      <p>{COMPANY.ADDRESS}</p>
+      <p>Phone: {COMPANY.PHONE_NUMBER}</p>
       <p>
         This cookie policy was created using Termly&#39;s Cookie Consent
         Manager.

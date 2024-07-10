@@ -1,13 +1,7 @@
+import { getHustleSettings } from '@/hustleSettings';
+
 export default function Page() {
-  const HUSTLE = {
-    COMPANY: {
-      NAME: 'Hustle Automotive',
-      URL: 'https://hustleauto.com',
-      ADDRESS: '15 Skyview Ranch Blvd Calgary, Alberta T3N0H1 Canada',
-      PHONE_NUMBER: '(587) 436 - 0142',
-      EMAIL: 'hustleaservices@gmail.com',
-    },
-  };
+  const { COMPANY } = getHustleSettings();
 
   return (
     <main className="prose container mx-auto my-20">
@@ -17,13 +11,13 @@ export default function Page() {
       <p>
         These Terms of Use constitute a legally binding agreement made between
         you, whether personally or on behalf of an entity (“you”) and{' '}
-        {HUSTLE.COMPANY.NAME} (&quot;Company,&quot; “we,&quot; “us,&quot; or
-        “our”), concerning your access to and use of the{' '}
-        <a href={HUSTLE.COMPANY.URL}>{HUSTLE.COMPANY.URL}</a> website as well as
-        any other media form, media channel, mobile website or mobile
-        application related, linked, or otherwise connected thereto
-        (collectively, the “Site”). We are registered in Canada and have our
-        registered office at {HUSTLE.COMPANY.ADDRESS}.
+        {COMPANY.NAME} (&quot;Company,&quot; “we,&quot; “us,&quot; or “our”),
+        concerning your access to and use of the{' '}
+        <a href={COMPANY.URL}>{COMPANY.URL}</a> website as well as any other
+        media form, media channel, mobile website or mobile application related,
+        linked, or otherwise connected thereto (collectively, the “Site”). We
+        are registered in Canada and have our registered office at{' '}
+        {COMPANY.ADDRESS}.
       </p>
       <p>
         You agree that by accessing the Site, you have read, understood, and
@@ -449,9 +443,9 @@ export default function Page() {
       <h2 id="governing-law">GOVERNING LAW</h2>
       <p>
         These Terms shall be governed by and defined following the laws of
-        Canada. {HUSTLE.COMPANY.NAME} and yourself irrevocably consent that the
-        courts of Canada shall have exclusive jurisdiction to resolve any
-        dispute which may arise in connection with these terms.
+        Canada. {COMPANY.NAME} and yourself irrevocably consent that the courts
+        of Canada shall have exclusive jurisdiction to resolve any dispute which
+        may arise in connection with these terms.
       </p>
       <h2 id="dispute-resolution">DISPUTE RESOLUTION</h2>
       <h3 id="informal-negotiations">Informal Negotiations</h3>
@@ -635,10 +629,10 @@ export default function Page() {
         In order to resolve a complaint regarding the Site or to receive further
         information regarding use of the Site, please contact us at:
       </p>
-      <p>{HUSTLE.COMPANY.NAME}</p>
-      <p>{HUSTLE.COMPANY.ADDRESS}</p>
-      <p>Phone: {HUSTLE.COMPANY.PHONE_NUMBER}</p>
-      <p>{HUSTLE.COMPANY.EMAIL}</p>
+      <p>{COMPANY.NAME}</p>
+      <p>{COMPANY.ADDRESS}</p>
+      <p>Phone: {COMPANY.PHONE_NUMBER}</p>
+      <p>{COMPANY.EMAIL}</p>
     </main>
   );
 }

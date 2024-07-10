@@ -1,22 +1,14 @@
+import { getHustleSettings } from '@/hustleSettings';
+
 export default function Page() {
-  const HUSTLE = {
-    COMPANY: {
-      NAME: 'Hustle Automotive',
-      URL: 'https://hustleauto.com',
-      ADDRESS: '15 Skyview Ranch Blvd Calgary, Alberta T3N0H1 Canada',
-      PHONE_NUMBER: '(587) 436 - 0142',
-      EMAIL: 'hustleaservices@gmail.com',
-      DOMAIN: 'hustleauto.com',
-      CONTACT_FORM_URL: 'https://hustleauto.com/contact-us',
-    },
-  };
+  const { COMPANY } = getHustleSettings();
 
   return (
     <main className="prose container mx-auto my-20">
       <h1 id="privacy-notice">PRIVACY NOTICE</h1>
       <p>Last updated February 03, 2023</p>
       <p>
-        This privacy notice for {HUSTLE.COMPANY.NAME} (&quot;Company,&quot;
+        This privacy notice for {COMPANY.NAME} (&quot;Company,&quot;
         &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;), describes how and
         why we might collect, store, use, and/or share (&quot;process&quot;)
         your information when you use our services (&quot;Services&quot;), such
@@ -24,9 +16,8 @@ export default function Page() {
       </p>
       <ul>
         <li>
-          Visit our website at{' '}
-          <a href={HUSTLE.COMPANY.URL}>{HUSTLE.COMPANY.URL}</a>, or any website
-          of ours that links to this privacy notice
+          Visit our website at <a href={COMPANY.URL}>{COMPANY.URL}</a>, or any
+          website of ours that links to this privacy notice
         </li>
         <li>
           Engage with us in other related ways, including any sales, marketing,
@@ -38,7 +29,7 @@ export default function Page() {
         help you understand your privacy rights and choices. If you do not agree
         with our policies and practices, please do not use our Services. If you
         still have any questions or concerns, please contact us at{' '}
-        {HUSTLE.COMPANY.EMAIL}.
+        {COMPANY.EMAIL}.
       </p>
       <h2 id="summary-of-key-points">SUMMARY OF KEY POINTS</h2>
       <p>
@@ -49,9 +40,8 @@ export default function Page() {
       <p>
         <strong>What personal information do we process?</strong> When you
         visit, use, or navigate our Services, we may process personal
-        information depending on how you interact with {HUSTLE.COMPANY.NAME} and
-        the Services, the choices you make, and the products and features you
-        use.
+        information depending on how you interact with {COMPANY.NAME} and the
+        Services, the choices you make, and the products and features you use.
       </p>
       <p>
         <strong>Do we process any sensitive personal information?</strong> We do
@@ -96,11 +86,9 @@ export default function Page() {
         <strong>How do you exercise your rights?</strong> The easiest way to
         exercise your rights is by filling out our data subject request form
         available here:{' '}
-        <a href={HUSTLE.COMPANY.CONTACT_FORM_URL}>
-          {HUSTLE.COMPANY.CONTACT_FORM_URL}
-        </a>
-        , or by contacting us. We will consider and act upon any request in
-        accordance with applicable data protection laws.
+        <a href={COMPANY.CONTACT_FORM_URL}>{COMPANY.CONTACT_FORM_URL}</a>, or by
+        contacting us. We will consider and act upon any request in accordance
+        with applicable data protection laws.
       </p>
       <h2 id="what-information-do-we-collect-">
         WHAT INFORMATION DO WE COLLECT?
@@ -572,7 +560,7 @@ export default function Page() {
       </p>
       <p>
         If you have questions or comments about your privacy rights, you may
-        email us at {HUSTLE.COMPANY.EMAIL}.
+        email us at {COMPANY.EMAIL}.
       </p>
       <h2 id="controls-for-do-not-track-features">
         CONTROLS FOR DO-NOT-TRACK FEATURES
@@ -641,11 +629,11 @@ export default function Page() {
       </h2>
       <p>
         If you have questions or comments about this notice, you may email us at{' '}
-        {HUSTLE.COMPANY.EMAIL} or by post to:
+        {COMPANY.EMAIL} or by post to:
       </p>
       <p>
-        {HUSTLE.COMPANY.NAME}
-        {HUSTLE.COMPANY.ADDRESS}
+        {COMPANY.NAME}
+        {COMPANY.ADDRESS}
       </p>
       <h2 id="how-can-you-review-update-or-delete-the-data-we-collect-from-you-">
         HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
@@ -655,9 +643,7 @@ export default function Page() {
         request access to the personal information we collect from you, change
         that information, or delete it. To request to review, update, or delete
         your personal information, please visit:{' '}
-        <a href={HUSTLE.COMPANY.CONTACT_FORM_URL}>
-          {HUSTLE.COMPANY.CONTACT_FORM_URL}
-        </a>
+        <a href={COMPANY.CONTACT_FORM_URL}>{COMPANY.CONTACT_FORM_URL}</a>
       </p>
     </main>
   );
