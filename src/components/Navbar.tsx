@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 
 import { cn } from '@/lib/utils';
@@ -13,16 +14,12 @@ export default function Navbar() {
     <>
       <nav className="bg-white border-gray-200">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
-          <a
-            href="https://flowbite.com/"
-            className="flex items-center rtl:space-x-reverse"
-          >
+          <Link href="/" className="flex items-center rtl:space-x-reverse">
             <HustleAutoLogo className="h-16" />
-
             <span className="self-center text-2xl font-semibold whitespace-nowrap ">
               HustleAuto
             </span>
-          </a>
+          </Link>
           <button
             data-collapse-toggle="navbar-default"
             type="button"
@@ -56,45 +53,44 @@ export default function Navbar() {
           >
             <ul className="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/"
                   className="block px-3 py-2 text-white bg-red-600 rounded md:bg-transparent md:text-red-600 md:p-0"
-                  aria-current="page"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-600 md:p-0"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-600 md:p-0"
                 >
                   Services
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="#"
                   className="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-600 md:p-0"
                 >
                   Pricing
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/contact-us"
                   className="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-600 md:p-0"
                 >
-                  Contact
-                </a>
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
