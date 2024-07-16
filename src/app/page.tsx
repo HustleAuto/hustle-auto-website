@@ -2,10 +2,10 @@ import BeholdWidget from '@behold/react';
 
 import HustleAutoLogo from '@/components/images/HustleAutoLogo';
 import { Button } from '@/components/ui/button';
+import { getHustleSettings } from '@/hustleSettings';
 
 export default function Home() {
-  // cSpell: disable-next-line
-  const feedId = 'cepmVJtea9vfXrBkAPhR';
+  const hustleSettings = getHustleSettings();
 
   return (
     <main className="">
@@ -31,7 +31,7 @@ export default function Home() {
 
       <section className="py-16 my-20 bg-secondary">
         <div className="px-3">
-          <BeholdWidget feedId={feedId} />
+          <BeholdWidget feedId={hustleSettings.BEHOLD.FEED_ID} />
         </div>
       </section>
     </main>

@@ -7,6 +7,9 @@ const hustleSettingsSchema = z
         CONTAINER_ID: z.string().startsWith('GTM-'),
       })
       .strict(),
+    BEHOLD: z.object({
+      FEED_ID: z.string().min(1),
+    }),
     COMPANY: z
       .object({
         NAME: z.string().min(1),
@@ -27,6 +30,9 @@ const getHustleSettings = (): HustleSettings => {
   return hustleSettingsSchema.parse({
     GOOGLE_TAG_MANAGER: {
       CONTAINER_ID: process.env['NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID'],
+    },
+    BEHOLD: {
+      FEED_ID: process.env['NEXT_PUBLIC_BEHOLD_FEED_ID'],
     },
     COMPANY: {
       NAME: 'Hustle Automotive',
