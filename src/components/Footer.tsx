@@ -78,22 +78,24 @@ export default function Footer() {
           <ul className="">
             <li>
               <Button variant="link-inverted" asChild>
-                <Link href="#">Terms & Conditions</Link>
+                <Link href="/legal/terms-and-conditions">
+                  Terms & Conditions
+                </Link>
               </Button>
             </li>
             <li>
               <Button variant="link-inverted" asChild>
-                <Link href="#">Privacy Policy</Link>
+                <Link href="/legal/privacy-policy">Privacy Policy</Link>
               </Button>
             </li>
             <li>
               <Button variant="link-inverted" asChild>
-                <Link href="#">Cookie Policy</Link>
+                <Link href="/legal/cookie-policy">Cookie Policy</Link>
               </Button>
             </li>
             <li>
               <Button variant="link-inverted" asChild>
-                <Link href="#">Disclaimer</Link>
+                <Link href="/legal/disclaimer">Disclaimer</Link>
               </Button>
             </li>
           </ul>
