@@ -1,3 +1,4 @@
+import { GoogleTagManager } from '@next/third-parties/google';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
@@ -5,6 +6,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import { getHustleSettings } from '@/hustleSettings';
 import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -17,8 +19,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const hustleSettings = getHustleSettings();
+
   return (
     <html lang="en">
+      <GoogleTagManager
+        gtmId={hustleSettings.GOOGLE_TAG_MANAGER.CONTAINER_ID}
+      />
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',

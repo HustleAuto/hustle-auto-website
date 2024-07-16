@@ -2,6 +2,11 @@ import { z } from 'zod';
 
 const hustleSettingsSchema = z
   .object({
+    GOOGLE_TAG_MANAGER: z
+      .object({
+        CONTAINER_ID: z.string().startsWith('GTM-'),
+      })
+      .strict(),
     COMPANY: z
       .object({
         NAME: z.string().min(1),
@@ -20,6 +25,9 @@ type HustleSettings = z.infer<typeof hustleSettingsSchema>;
 
 const getHustleSettings = (): HustleSettings => {
   return hustleSettingsSchema.parse({
+    GOOGLE_TAG_MANAGER: {
+      CONTAINER_ID: process.env['NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID'],
+    },
     COMPANY: {
       NAME: 'Hustle Automotive',
       URL: 'https://hustleauto.com',
