@@ -1,6 +1,8 @@
 'use client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { PaperPlaneIcon } from '@radix-ui/react-icons';
+import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
@@ -21,6 +23,8 @@ import {
 } from '@/models/ContactUsFormSchema';
 
 export default function ContactUsForm() {
+  const searchParams = useSearchParams();
+
   const form = useForm<ContactUsFormSchema>({
     resolver: zodResolver(contactUsFormSchema),
     defaultValues: {
@@ -29,6 +33,20 @@ export default function ContactUsForm() {
       message: '',
     },
   });
+
+  // for development purposes, prefill the form with hardcoded values
+  // when there is a search param of "prefill=true" is present in the URL
+  useEffect(() => {
+    if (searchParams) {
+      const fill = searchParams.get('prefill') === 'true';
+
+      if (fill) {
+        form.setValue('name', 'John Doe');
+        form.setValue('contactInfo', 'john.doe@gmail.com or (403) 123 - 4567');
+        form.setValue('message', 'Hello!');
+      }
+    }
+  }, [searchParams, form]);
 
   function onSubmit(values: ContactUsFormSchema) {
     console.log(values);

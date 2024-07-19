@@ -19,7 +19,7 @@ export default function Page() {
 
   return (
     <main className="my-20">
-      <h1 className="typography-h1 text-center mb-10">Contact Us</h1>
+      <h1 className="typography-h1 text-center mb-16">Contact Us</h1>
       {/* make this section aside when the page is greater than md */}
       <section className="grid grid-cols-1 gap-10 md:grid-cols-3">
         <article className="max-w-md mx-auto w-full">
