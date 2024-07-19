@@ -14,12 +14,10 @@ export default function Home() {
           <HustleAutoLogo className="mx-auto w-60" />
         </div>
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight scroll-m-20 lg:text-5xl">
-            Hustle for Superior Detailing
-          </h1>
+          <h1 className="typography-h1">Hustle for Superior Detailing</h1>
         </div>
         <div>
-          <p className="text-balance text-center leading-7 [&:not(:first-child)]:mt-6">
+          <p className="text-balance text-center typography-lead">
             Revved up by dedication. Driven by passion. Fine-tuning every inch
             of your ride to perfection.
           </p>

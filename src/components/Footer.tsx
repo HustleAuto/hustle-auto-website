@@ -5,7 +5,6 @@ import FacebookLogo from '@/components/images/FacebookLogo';
 import GoogleLogo from '@/components/images/GoogleLogo';
 import { Button } from '@/components/ui/button';
 import hustleConstants from '@/hustleConstants';
-import { getHustleSettings } from '@/hustleSettings';
 
 import { Separator } from './ui/separator';
 
@@ -16,10 +15,7 @@ export default function Footer() {
     <div className="px-3 py-16 mt-20 space-y-10 text-center bg-primary text-primary-foreground">
       <section className="container grid space-y-10 md:space-y-0 md:grid-cols-3">
         <article className="">
-          <h3 className="mb-6 text-2xl font-semibold tracking-tight scroll-m-20">
-            HUSTLE AUTOMOTIVE
-          </h3>
-
+          <h3 className="mb-6 typography-h3">HUSTLE AUTOMOTIVE</h3>
           <ul className="flex justify-center space-x-3">
             <li>
               <Button size="icon" className="dark">
@@ -43,6 +39,7 @@ export default function Footer() {
             </li>
           </ul>
         </article>
+
         <article>
           <h4 className="mb-3 text-lg font-semibold tracking-tight scroll-m-20">
             Contact Us
