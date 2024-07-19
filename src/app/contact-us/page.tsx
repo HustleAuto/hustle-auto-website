@@ -1,4 +1,5 @@
 import { InstagramLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
+import { Suspense } from 'react';
 
 import ContactUsForm from '@/components/ContactUsForm';
 import FacebookLogo from '@/components/images/FacebookLogo';
@@ -61,7 +62,9 @@ export default function Page() {
           </Card>
         </article>
         <article className="max-w-md mx-auto w-full">
-          <ContactUsForm />
+          <Suspense>
+            <ContactUsForm />
+          </Suspense>
         </article>
       </section>
     </main>
