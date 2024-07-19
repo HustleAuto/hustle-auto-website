@@ -52,12 +52,12 @@ const buttonVariants = cva(
 );
 
 interface IconProps {
-  Icon: React.ElementType;
+  icon: React.ElementType;
   iconPlacement: 'left' | 'right';
 }
 
 interface IconRefProps {
-  Icon?: never;
+  icon?: never;
   iconPlacement?: undefined;
 }
 
@@ -79,7 +79,7 @@ const Button = React.forwardRef<
       variant,
       size,
       asChild = false,
-      Icon,
+      icon: Icon,
       iconPlacement,
       ...props
     },
