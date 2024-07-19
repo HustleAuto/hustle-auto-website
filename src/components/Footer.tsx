@@ -20,22 +20,22 @@ export default function Footer() {
 
           <ul className="flex justify-center space-x-3">
             <li>
-              <Button variant="inverted" size="icon">
+              <Button size="icon" className="dark">
                 <LinkedInLogoIcon className="w-6 h-6" />
               </Button>
             </li>
             <li>
-              <Button variant="inverted" size="icon">
+              <Button size="icon" className="dark">
                 <InstagramLogoIcon className="w-6 h-6" />
               </Button>
             </li>
             <li>
-              <Button variant="inverted" size="icon">
+              <Button size="icon" className="dark">
                 <FacebookLogo className="w-6 h-6 invert" />
               </Button>
             </li>
             <li>
-              <Button variant="inverted" size="icon">
+              <Button size="icon" className="dark">
                 <GoogleLogo className="w-6 h-6 filter" />
               </Button>
             </li>
@@ -47,60 +47,60 @@ export default function Footer() {
           </h4>
           <ul>
             <li>
-              <Button variant="link-inverted" asChild>
+              <Button variant="link" className="dark" asChild>
                 <Link href="#">{COMPANY.PHONE_NUMBER} </Link>
               </Button>
             </li>
             <li>
-              <Button variant="link-inverted" asChild>
+              <Button variant="link" className="dark" asChild>
                 <Link href="#">{COMPANY.EMAIL} </Link>
               </Button>
             </li>
             <li>
-              <Button variant="link-inverted" asChild>
+              <Button variant="link" className="dark" asChild>
                 <div className="my-2 text-wrap">
                   <Link href="#">{COMPANY.ADDRESS}</Link>
                 </div>
               </Button>
             </li>
             <li className="pt-4">
-              <Button variant="outline-inverted" asChild>
+              <Button variant="outline" className="dark" asChild>
                 <Link href="#">Contact Us Form</Link>
               </Button>
             </li>
           </ul>
         </article>
 
-        <article className="">
+        <article>
           <h4 className="mb-3 text-lg font-semibold tracking-tight scroll-m-20">
             Legal
           </h4>
-          <ul className="">
+          <ul>
             <li>
-              <Button variant="link-inverted" asChild>
+              <Button variant="link" className="dark" asChild>
                 <Link href="/legal/terms-and-conditions">
                   Terms & Conditions
                 </Link>
               </Button>
             </li>
             <li>
-              <Button variant="link-inverted" asChild>
+              <Button variant="link" className="dark" asChild>
                 <Link href="/legal/privacy-policy">Privacy Policy</Link>
               </Button>
             </li>
             <li>
-              <Button variant="link-inverted" asChild>
+              <Button variant="link" className="dark" asChild>
                 <Link href="/legal/cookie-policy">Cookie Policy</Link>
               </Button>
             </li>
             <li>
-              <Button variant="link-inverted" asChild>
+              <Button variant="link" className="dark" asChild>
                 <Link href="/legal/disclaimer">Disclaimer</Link>
               </Button>
             </li>
           </ul>
         </article>
-        <article className=""></article>
+        <article></article>
       </section>
       <article>
         <Separator />
