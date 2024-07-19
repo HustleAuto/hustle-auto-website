@@ -1,7 +1,7 @@
-import { getHustleSettings } from '@/hustleSettings';
+import hustleConstants from '@/hustleConstants';
 
 export default function Page() {
-  const { COMPANY } = getHustleSettings();
+  const { COMPANY } = hustleConstants;
 
   return (
     <main className="container mx-auto my-20 prose">

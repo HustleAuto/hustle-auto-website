@@ -4,12 +4,14 @@ import Link from 'next/link';
 import FacebookLogo from '@/components/images/FacebookLogo';
 import GoogleLogo from '@/components/images/GoogleLogo';
 import { Button } from '@/components/ui/button';
+import hustleConstants from '@/hustleConstants';
 import { getHustleSettings } from '@/hustleSettings';
 
 import { Separator } from './ui/separator';
 
 export default function Footer() {
-  const { COMPANY } = getHustleSettings();
+  const { COMPANY } = hustleConstants;
+
   return (
     <div className="px-3 py-16 mt-20 space-y-10 text-center bg-primary text-primary-foreground">
       <section className="container grid space-y-10 md:space-y-0 md:grid-cols-3">
