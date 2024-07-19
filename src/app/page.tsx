@@ -25,7 +25,9 @@ export default function Home() {
           </p>
         </div>
         <div className="text-center">
-          <Button size={'lg'}>View Services & Prices</Button>
+          <Button size="lg" variant="shine">
+            View Services & Prices
+          </Button>
         </div>
       </section>
 
