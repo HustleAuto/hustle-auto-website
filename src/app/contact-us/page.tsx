@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import ContactUsForm from '@/components/ContactUsForm';
 import FacebookLogo from '@/components/images/FacebookLogo';
 import GoogleLogo from '@/components/images/GoogleLogo';
+import PageSection from '@/components/PageSection';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -19,7 +20,7 @@ export default function Page() {
   const { COMPANY } = hustleConstants;
 
   return (
-    <main className="my-20">
+    <PageSection>
       <h1 className="typography-h1 text-center mb-16">Contact Us</h1>
       {/* make this section aside when the page is greater than md */}
       <section className="grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -67,6 +68,6 @@ export default function Page() {
           </Suspense>
         </article>
       </section>
-    </main>
+    </PageSection>
   );
 }

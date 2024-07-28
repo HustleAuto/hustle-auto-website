@@ -1,6 +1,7 @@
 import BeholdWidget from '@behold/react';
 
 import HustleAutoLogo from '@/components/images/HustleAutoLogo';
+import PageSection from '@/components/PageSection';
 import { Button } from '@/components/ui/button';
 import { getHustleSettings } from '@/hustleSettings';
 
@@ -9,7 +10,7 @@ export default function Home() {
 
   return (
     <main className="">
-      <section className="my-20 space-y-6">
+      <PageSection className="space-y-6">
         <div>
           <HustleAutoLogo className="mx-auto w-60" />
         </div>
@@ -27,13 +28,11 @@ export default function Home() {
             View Services & Prices
           </Button>
         </div>
-      </section>
+      </PageSection>
 
-      <section className="py-16 my-20 bg-secondary">
-        <div className="px-3">
-          <BeholdWidget feedId={hustleSettings.BEHOLD.FEED_ID} />
-        </div>
-      </section>
+      <PageSection className="bg-secondary py-16">
+        <BeholdWidget feedId={hustleSettings.BEHOLD.FEED_ID} />
+      </PageSection>
     </main>
   );
 }
