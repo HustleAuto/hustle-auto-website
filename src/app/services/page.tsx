@@ -1,5 +1,10 @@
-import OrderForm from '@/components/OrderForm';
+import dynamic from 'next/dynamic';
+
 import PageSection from '@/components/PageSection';
+
+const OrderForm = dynamic(() => import('@/components/OrderForm'), {
+  ssr: false,
+});
 
 export default function Page() {
   return (
