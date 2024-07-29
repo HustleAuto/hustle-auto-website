@@ -1,4 +1,5 @@
 import { InstagramLogoIcon, LinkedInLogoIcon } from '@radix-ui/react-icons';
+import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 
 import ContactUsForm from '@/components/ContactUsForm';
@@ -16,6 +17,10 @@ import {
 } from '@/components/ui/card';
 import hustleConstants from '@/hustleConstants';
 
+const OrderSummary = dynamic(() => import('@/components/OrderSummary'), {
+  ssr: false,
+});
+
 export default function Page() {
   const { COMPANY } = hustleConstants;
 
@@ -23,8 +28,8 @@ export default function Page() {
     <PageSection>
       <h1 className="typography-h1 text-center mb-16">Contact Us</h1>
       {/* make this section aside when the page is greater than md */}
-      <section className="grid grid-cols-1 gap-10 md:grid-cols-3">
-        <article className="max-w-md mx-auto w-full">
+      <section className="grid grid-cols-1 gap-10 xl:grid-cols-3">
+        <article className="max-w-md mx-auto w-full xl:order-1">
           <Card>
             <CardHeader>
               <CardTitle>Hustle Auto Contact Info</CardTitle>
@@ -62,7 +67,12 @@ export default function Page() {
             </CardFooter>
           </Card>
         </article>
-        <article className="max-w-md mx-auto w-full">
+
+        <article className="max-w-md mx-auto w-full xl:order-3">
+          <OrderSummary />
+        </article>
+
+        <article className="max-w-md mx-auto w-full xl:order-2">
           <Suspense>
             <ContactUsForm />
           </Suspense>

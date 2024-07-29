@@ -1,5 +1,8 @@
 'use client';
 
+import { ChevronRightIcon } from '@radix-ui/react-icons';
+import { useRouter } from 'next/navigation';
+
 import OrderFormField from '@/components/order-form-fields';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
@@ -10,10 +13,11 @@ import useOrderForm, {
 
 export default function OrderForm() {
   const form = useOrderForm();
+  const router = useRouter();
 
   function onSubmit(values: OrderFormSchema) {
-    // ✅ This will be type-safe and validated.
     console.log(values);
+    router.push('/contact-us');
   }
 
   return (
@@ -47,7 +51,14 @@ export default function OrderForm() {
             >
               Reset
             </Button>
-            <Button type="submit">Submit</Button>
+            <Button
+              type="submit"
+              variant="expandIcon"
+              icon={ChevronRightIcon}
+              iconPlacement="right"
+            >
+              Continue
+            </Button>
           </section>
         </form>
       </Form>
