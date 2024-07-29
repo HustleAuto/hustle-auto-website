@@ -4,6 +4,7 @@ import CeramicCoatingPackageField from './CeramicCoatingPackageField';
 import ExteriorPackageField from './ExteriorPackageField';
 import InteriorAddonsField from './InteriorAddonsField';
 import InteriorPackageField from './InteriorPackageField';
+import ServiceLocationField from './ServiceLocationField';
 
 const OrderFormField = {
   CarType: CarTypeField,
@@ -12,6 +13,7 @@ const OrderFormField = {
   ExteriorPackage: ExteriorPackageField,
   CeramicCoatingPackage: CeramicCoatingPackageField,
   CeramicCoatingAddons: CeramicCoatingAddonsField,
+  ServiceLocation: ServiceLocationField,
 };
 
 export default OrderFormField;

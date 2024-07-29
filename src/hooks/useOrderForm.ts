@@ -23,7 +23,7 @@ const orderFormSchema = z.object({
       selected: z.boolean(),
     }),
   ),
-  ServiceLocation: z.nativeEnum(ServiceLocation),
+  serviceLocation: z.nativeEnum(ServiceLocation),
 });
 
 type OrderFormSchema = z.infer<typeof orderFormSchema>;
@@ -43,7 +43,7 @@ const defaultValues: OrderFormSchema = {
       selected: false,
     }),
   ),
-  ServiceLocation: ServiceLocation.HustleAutoHome,
+  serviceLocation: ServiceLocation.HustleAutoHome,
 };
 
 function useOrderForm() {

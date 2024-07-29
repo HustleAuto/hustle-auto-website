@@ -34,6 +34,11 @@ export default function OrderForm() {
             <OrderFormField.CeramicCoatingAddons />
           </section>
 
+          <section>
+            <h2 className="order-form-section-heading">Service Location</h2>
+            <OrderFormField.ServiceLocation />
+          </section>
+
           <section className="flex justify-between">
             <Button
               type="button"
