@@ -25,11 +25,14 @@ export default function OrderForm() {
             <OrderFormField.CarType />
           </section>
 
-          <section>
+          <section className="space-y-6">
             <h2 className="order-form-section-heading">Services</h2>
             <article className="space-y-4">
               <OrderFormField.InteriorPackage />
               <OrderFormField.InteriorAddons />
+            </article>
+            <article>
+              <OrderFormField.ExteriorPackage />
             </article>
           </section>
 
