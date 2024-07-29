@@ -1,5 +1,8 @@
+import { ExternalLinkIcon } from '@radix-ui/react-icons';
+import Link from 'next/link';
 import { useFormContext } from 'react-hook-form';
 
+import { Button } from '@/components/ui/button';
 import {
   FormControl,
   FormField,
@@ -60,6 +63,12 @@ export default function CeramicCoatingPackage() {
                 ))}
               </SelectContent>
             </Select>
+            <Button variant="link" className="p-0 text-muted-foreground">
+              <Link href="#">
+                View Details on Ceramic Coating Services
+                <ExternalLinkIcon className="inline ml-1" />
+              </Link>
+            </Button>
             <FormMessage />
           </FormItem>
         )}

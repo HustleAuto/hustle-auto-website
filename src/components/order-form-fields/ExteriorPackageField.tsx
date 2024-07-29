@@ -1,5 +1,8 @@
+import { ExternalLinkIcon } from '@radix-ui/react-icons';
+import Link from 'next/link';
 import { useFormContext } from 'react-hook-form';
 
+import { Button } from '@/components/ui/button';
 import {
   FormControl,
   FormDescription,
@@ -60,6 +63,14 @@ export default function ExteriorPackageField() {
                 ))}
               </SelectContent>
             </Select>
+            <FormDescription>
+              <Button variant="link" className="p-0 text-muted-foreground">
+                <Link href="#">
+                  View Details on Exterior Services
+                  <ExternalLinkIcon className="inline ml-1" />
+                </Link>
+              </Button>
+            </FormDescription>
             <FormMessage />
           </FormItem>
         )}
