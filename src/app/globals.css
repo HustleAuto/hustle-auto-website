@@ -73,9 +73,7 @@
   body {
     @apply bg-background text-foreground;
   }
-}
 
-@layer components {
   .typography-h1 {
     @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
   }
@@ -110,5 +108,17 @@
 
   .typography-muted {
     @apply text-sm text-muted-foreground;
+  }
+}
+
+@layer components {
+  .order-form {
+    .order-form-section-heading {
+      @apply typography-h3 border-b pb-2 mb-6;
+    }
+
+    .order-form-select-input {
+      @apply w-full max-w-xs;
+    }
   }
 }
