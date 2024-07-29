@@ -31,7 +31,10 @@ type OrderFormSchema = z.infer<typeof orderFormSchema>;
 const defaultValues: OrderFormSchema = {
   carType: CarType.Sedan,
   interiorPackage: Service.InteriorPackageID.None,
-  interiorAddons: [],
+  interiorAddons: Object.values(Service.InteriorAddonID).map((addonId) => ({
+    addonId,
+    selected: false,
+  })),
   exteriorPackage: Service.ExteriorPackageID.None,
   ceramicCoatingPackage: Service.CeramicCoatingPackageID.None,
   ceramicCoatingAddons: [],

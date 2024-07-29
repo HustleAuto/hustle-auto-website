@@ -27,8 +27,9 @@ export default function OrderForm() {
 
           <section>
             <h2 className="order-form-section-heading">Services</h2>
-            <article>
+            <article className="space-y-4">
               <OrderFormField.InteriorPackage />
+              <OrderFormField.InteriorAddons />
             </article>
           </section>
 
