@@ -28,28 +28,26 @@ const orderFormSchema = z.object({
 
 type OrderFormSchema = z.infer<typeof orderFormSchema>;
 
-const defaultValues: OrderFormSchema = {
-  carType: CarType.Sedan,
-  interiorPackage: Service.InteriorPackageID.None,
-  interiorAddons: Object.values(Service.InteriorAddonID).map((addonId) => ({
-    addonId,
-    selected: false,
-  })),
-  exteriorPackage: Service.ExteriorPackageID.None,
-  ceramicCoatingPackage: Service.CeramicCoatingPackageID.None,
-  ceramicCoatingAddons: Object.values(Service.CeramicCoatingAddonID).map(
-    (addonId) => ({
-      addonId,
-      selected: false,
-    }),
-  ),
-  serviceLocation: ServiceLocation.HustleAutoHome,
-};
-
 function useOrderForm() {
   const form = useForm<OrderFormSchema>({
     resolver: zodResolver(orderFormSchema),
-    defaultValues,
+    defaultValues: {
+      carType: CarType.Sedan,
+      interiorPackage: Service.InteriorPackageID.None,
+      interiorAddons: Object.values(Service.InteriorAddonID).map((addonId) => ({
+        addonId,
+        selected: false,
+      })),
+      exteriorPackage: Service.ExteriorPackageID.None,
+      ceramicCoatingPackage: Service.CeramicCoatingPackageID.None,
+      ceramicCoatingAddons: Object.values(Service.CeramicCoatingAddonID).map(
+        (addonId) => ({
+          addonId,
+          selected: false,
+        }),
+      ),
+      serviceLocation: ServiceLocation.HustleAutoHome,
+    },
   });
 
   return form;
@@ -57,4 +55,4 @@ function useOrderForm() {
 
 export default useOrderForm;
 
-export { defaultValues, type OrderFormSchema };
+export { type OrderFormSchema };
