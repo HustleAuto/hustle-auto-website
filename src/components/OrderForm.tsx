@@ -27,16 +27,11 @@ export default function OrderForm() {
 
           <section className="space-y-6">
             <h2 className="order-form-section-heading">Services</h2>
-            <article className="space-y-4">
-              <OrderFormField.InteriorPackage />
-              <OrderFormField.InteriorAddons />
-            </article>
-            <article>
-              <OrderFormField.ExteriorPackage />
-            </article>
-            <article>
-              <OrderFormField.CeramicCoatingPackage />
-            </article>
+            <OrderFormField.InteriorPackage />
+            <OrderFormField.InteriorAddons />
+            <OrderFormField.ExteriorPackage />
+            <OrderFormField.CeramicCoatingPackage />
+            <OrderFormField.CeramicCoatingAddons />
           </section>
 
           <section className="flex justify-between">

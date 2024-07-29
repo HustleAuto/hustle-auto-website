@@ -37,7 +37,12 @@ const defaultValues: OrderFormSchema = {
   })),
   exteriorPackage: Service.ExteriorPackageID.None,
   ceramicCoatingPackage: Service.CeramicCoatingPackageID.None,
-  ceramicCoatingAddons: [],
+  ceramicCoatingAddons: Object.values(Service.CeramicCoatingAddonID).map(
+    (addonId) => ({
+      addonId,
+      selected: false,
+    }),
+  ),
   ServiceLocation: ServiceLocation.HustleAutoHome,
 };
 
