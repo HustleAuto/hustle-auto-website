@@ -1,13 +1,17 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
 
+import { Checkbox } from '@/components/ui/checkbox';
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from '@/components/ui/form';
+import { Label } from '@/components/ui/label';
 import { OrderFormSchema } from '@/hooks/useOrderForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 import { Price } from '@/Price';
-
-import { Checkbox } from '../ui/checkbox';
-import { FormControl, FormField, FormItem, FormLabel } from '../ui/form';
-import { Label } from '../ui/label';
 
 export default function InteriorAddonsField() {
   const form = useFormContext<OrderFormSchema>();
