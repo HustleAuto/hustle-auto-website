@@ -25,6 +25,13 @@ export default function OrderForm() {
             <OrderFormField.CarType />
           </section>
 
+          <section>
+            <h2 className="order-form-section-heading">Services</h2>
+            <article>
+              <OrderFormField.InteriorPackage />
+            </article>
+          </section>
+
           <section className="flex justify-between">
             <Button
               type="button"
