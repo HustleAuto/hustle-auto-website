@@ -3,7 +3,10 @@
 import OrderFormField from '@/components/order-form-fields';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import useOrderForm, { OrderFormSchema } from '@/hooks/useOrderForm';
+import useOrderForm, {
+  OrderFormSchema,
+  initialValues,
+} from '@/hooks/useOrderForm';
 
 export default function OrderForm() {
   const form = useOrderForm();
@@ -40,7 +43,7 @@ export default function OrderForm() {
             <Button
               type="button"
               variant="secondary"
-              onClick={() => form.reset()}
+              onClick={() => form.reset(initialValues)}
             >
               Reset
             </Button>

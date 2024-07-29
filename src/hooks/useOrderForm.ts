@@ -1,5 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import { useSessionStorage } from 'usehooks-ts';
 import { z } from 'zod';
 
 import { CarType } from '@/models/CarType';
@@ -28,31 +30,45 @@ const orderFormSchema = z.object({
 
 type OrderFormSchema = z.infer<typeof orderFormSchema>;
 
+const initialValues: OrderFormSchema = {
+  carType: CarType.Sedan,
+  interiorPackage: Service.InteriorPackageID.None,
+  interiorAddons: Object.values(Service.InteriorAddonID).map((addonId) => ({
+    addonId,
+    selected: false,
+  })),
+  exteriorPackage: Service.ExteriorPackageID.None,
+  ceramicCoatingPackage: Service.CeramicCoatingPackageID.None,
+  ceramicCoatingAddons: Object.values(Service.CeramicCoatingAddonID).map(
+    (addonId) => ({
+      addonId,
+      selected: false,
+    }),
+  ),
+  serviceLocation: ServiceLocation.HustleAutoHome,
+};
+
 function useOrderForm() {
+  const [defaultValues, setDefaultValues] = useSessionStorage<OrderFormSchema>(
+    'defaultValues',
+    initialValues,
+  );
+
   const form = useForm<OrderFormSchema>({
     resolver: zodResolver(orderFormSchema),
-    defaultValues: {
-      carType: CarType.Sedan,
-      interiorPackage: Service.InteriorPackageID.None,
-      interiorAddons: Object.values(Service.InteriorAddonID).map((addonId) => ({
-        addonId,
-        selected: false,
-      })),
-      exteriorPackage: Service.ExteriorPackageID.None,
-      ceramicCoatingPackage: Service.CeramicCoatingPackageID.None,
-      ceramicCoatingAddons: Object.values(Service.CeramicCoatingAddonID).map(
-        (addonId) => ({
-          addonId,
-          selected: false,
-        }),
-      ),
-      serviceLocation: ServiceLocation.HustleAutoHome,
-    },
+    defaultValues: defaultValues,
   });
+
+  useEffect(() => {
+    const subscription = form.watch((value) =>
+      setDefaultValues(value as OrderFormSchema),
+    );
+    return () => subscription.unsubscribe();
+  }, [form, form.watch, setDefaultValues]);
 
   return form;
 }
 
 export default useOrderForm;
 
-export { type OrderFormSchema };
+export { initialValues, type OrderFormSchema };

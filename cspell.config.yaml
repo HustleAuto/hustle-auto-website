@@ -25,6 +25,7 @@ words:
   - Retargeting
   - Skyview
   - tailwindcss
+  - usehooks
 ignoreWords: []
 import: []
 language: en
