@@ -34,6 +34,9 @@ export default function OrderForm() {
             <article>
               <OrderFormField.ExteriorPackage />
             </article>
+            <article>
+              <OrderFormField.CeramicCoatingPackage />
+            </article>
           </section>
 
           <section className="flex justify-between">
