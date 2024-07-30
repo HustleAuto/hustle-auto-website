@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/card';
 import hustleConstants from '@/hustleConstants';
 
-const OrderSummary = dynamic(() => import('@/components/OrderSummary'), {
+const QuoteSummary = dynamic(() => import('@/components/QuoteSummary'), {
   ssr: false,
 });
 
@@ -69,7 +69,7 @@ export default function Page() {
         </article>
 
         <article className="max-w-md mx-auto w-full xl:order-3">
-          <OrderSummary />
+          <QuoteSummary />
         </article>
 
         <article className="max-w-md mx-auto w-full xl:order-2">

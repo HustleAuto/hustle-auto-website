@@ -15,29 +15,33 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { OrderFormSchema } from '@/hooks/useOrderForm';
+import { QuoteFormSchema } from '@/hooks/useQuoteForm';
+import { formatPrice } from '@/lib/utils';
 import { CarType } from '@/models/CarType';
+import { ServiceLocation } from '@/models/ServiceLocation';
+import { Price } from '@/Price';
 
-export default function CarTypeField() {
-  const form = useFormContext<OrderFormSchema>();
+export default function ServiceLocationField() {
+  const form = useFormContext<QuoteFormSchema>();
 
-  const selectOptions = Object.values(CarType).map((carType) => ({
-    value: carType,
-    label: carType.toString(),
-  }));
-
+  const selectOptions = Object.values(ServiceLocation).map(
+    (serviceLocation) => ({
+      value: serviceLocation,
+      label: `${serviceLocation} (${formatPrice(Price.ServiceLocation[serviceLocation])})`,
+    }),
+  );
   return (
     <>
       <FormField
         control={form.control}
-        name="carType"
+        name="serviceLocation"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Select Your Car Type</FormLabel>
+            <FormLabel>Select Your Service Location</FormLabel>
             <Select onValueChange={field.onChange} value={field.value}>
               <FormControl>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select Car Type..." />
+                  <SelectValue placeholder="Select Service Location..." />
                 </SelectTrigger>
               </FormControl>
               <SelectContent>

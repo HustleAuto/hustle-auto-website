@@ -9,13 +9,13 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
-import { OrderFormSchema } from '@/hooks/useOrderForm';
+import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 import { Price } from '@/Price';
 
 export default function InteriorAddonsField() {
-  const form = useFormContext<OrderFormSchema>();
+  const form = useFormContext<QuoteFormSchema>();
   const { fields } = useFieldArray({
     control: form.control,
     name: 'interiorAddons',

@@ -17,13 +17,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { OrderFormSchema } from '@/hooks/useOrderForm';
+import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 import { Price } from '@/Price';
 
 export default function CeramicCoatingPackage() {
-  const form = useFormContext<OrderFormSchema>();
+  const form = useFormContext<QuoteFormSchema>();
 
   const carType = form.watch('carType');
 

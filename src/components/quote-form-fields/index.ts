@@ -6,7 +6,7 @@ import InteriorAddonsField from './InteriorAddonsField';
 import InteriorPackageField from './InteriorPackageField';
 import ServiceLocationField from './ServiceLocationField';
 
-const OrderFormField = {
+const QuoteFormField = {
   CarType: CarTypeField,
   InteriorPackage: InteriorPackageField,
   InteriorAddons: InteriorAddonsField,
@@ -16,4 +16,4 @@ const OrderFormField = {
   ServiceLocation: ServiceLocationField,
 };
 
-export default OrderFormField;
+export default QuoteFormField;

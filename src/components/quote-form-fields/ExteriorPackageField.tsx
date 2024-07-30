@@ -18,42 +18,42 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { OrderFormSchema } from '@/hooks/useOrderForm';
+import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 import { Price } from '@/Price';
 
-export default function InteriorPackageField() {
-  const form = useFormContext<OrderFormSchema>();
+export default function ExteriorPackageField() {
+  const form = useFormContext<QuoteFormSchema>();
 
   const carType = form.watch('carType');
 
-  const selectOptions = Object.values(Service.InteriorPackageID)
+  const selectOptions = Object.values(Service.ExteriorPackageID)
     // Don't show the price for the "None" option
     .filter(
-      (interiorPackage) => interiorPackage !== Service.InteriorPackageID.None,
+      (exteriorPackage) => exteriorPackage !== Service.ExteriorPackageID.None,
     )
-    .map((interiorPackage) => ({
-      value: interiorPackage,
-      label: `${interiorPackage} (${formatPrice(Price.Interior[interiorPackage][carType])})`,
+    .map((exteriorPackage) => ({
+      value: exteriorPackage,
+      label: `${exteriorPackage} (${formatPrice(Price.Exterior[exteriorPackage][carType])})`,
     }));
 
   return (
     <>
       <FormField
         control={form.control}
-        name="interiorPackage"
+        name="exteriorPackage"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Select Interior Package</FormLabel>
+            <FormLabel>Select Exterior Package</FormLabel>
             <Select onValueChange={field.onChange} value={field.value}>
               <FormControl>
                 <SelectTrigger>
-                  <SelectValue placeholder="Select Interior Package..." />
+                  <SelectValue placeholder="Select Exterior Package..." />
                 </SelectTrigger>
               </FormControl>
               <SelectContent>
-                <SelectItem value={Service.InteriorPackageID.None}>
+                <SelectItem value={Service.ExteriorPackageID.None}>
                   None
                 </SelectItem>
                 {selectOptions.map((option) => (
@@ -66,7 +66,7 @@ export default function InteriorPackageField() {
             <FormDescription>
               <Button variant="link" className="p-0 text-muted-foreground">
                 <Link href="#">
-                  View Details on Interior Services
+                  View Details on Exterior Services
                   <ExternalLinkIcon className="inline ml-1" />
                 </Link>
               </Button>

@@ -78,10 +78,10 @@ export default function Navbar() {
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="/quote"
                   className="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-600 md:p-0"
                 >
-                  Pricing
+                  Pricing / Quote
                 </Link>
               </li>
               <li>

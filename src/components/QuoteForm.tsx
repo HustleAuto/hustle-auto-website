@@ -3,19 +3,19 @@
 import { ChevronRightIcon } from '@radix-ui/react-icons';
 import { useRouter } from 'next/navigation';
 
-import OrderFormField from '@/components/order-form-fields';
+import QuoteFormField from '@/components/quote-form-fields';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import useOrderForm, {
-  OrderFormSchema,
+import useQuoteForm, {
+  QuoteFormSchema,
   initialValues,
-} from '@/hooks/useOrderForm';
+} from '@/hooks/useQuoteForm';
 
-export default function OrderForm() {
-  const form = useOrderForm();
+export default function QuoteForm() {
+  const form = useQuoteForm();
   const router = useRouter();
 
-  function onSubmit(values: OrderFormSchema) {
+  function onSubmit(values: QuoteFormSchema) {
     console.log(values);
     router.push('/contact-us');
   }
@@ -26,21 +26,21 @@ export default function OrderForm() {
         <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
           <section>
             <h2 className="order-form-section-heading">Car Type</h2>
-            <OrderFormField.CarType />
+            <QuoteFormField.CarType />
           </section>
 
           <section className="space-y-6">
             <h2 className="order-form-section-heading">Services</h2>
-            <OrderFormField.InteriorPackage />
-            <OrderFormField.InteriorAddons />
-            <OrderFormField.ExteriorPackage />
-            <OrderFormField.CeramicCoatingPackage />
-            <OrderFormField.CeramicCoatingAddons />
+            <QuoteFormField.InteriorPackage />
+            <QuoteFormField.InteriorAddons />
+            <QuoteFormField.ExteriorPackage />
+            <QuoteFormField.CeramicCoatingPackage />
+            <QuoteFormField.CeramicCoatingAddons />
           </section>
 
           <section>
             <h2 className="order-form-section-heading">Service Location</h2>
-            <OrderFormField.ServiceLocation />
+            <QuoteFormField.ServiceLocation />
           </section>
 
           <section className="flex justify-between">

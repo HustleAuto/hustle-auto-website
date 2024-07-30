@@ -8,7 +8,7 @@ import { CarType } from '@/models/CarType';
 import { Service } from '@/models/Service';
 import { ServiceLocation } from '@/models/ServiceLocation';
 
-const orderFormSchema = z.object({
+const quoteFormSchema = z.object({
   carType: z.nativeEnum(CarType),
   interiorPackage: z.nativeEnum(Service.InteriorPackageID),
   interiorAddons: z.array(
@@ -28,9 +28,9 @@ const orderFormSchema = z.object({
   serviceLocation: z.nativeEnum(ServiceLocation),
 });
 
-type OrderFormSchema = z.infer<typeof orderFormSchema>;
+type QuoteFormSchema = z.infer<typeof quoteFormSchema>;
 
-const initialValues: OrderFormSchema = {
+const initialValues: QuoteFormSchema = {
   carType: CarType.Sedan,
   interiorPackage: Service.InteriorPackageID.None,
   interiorAddons: Object.values(Service.InteriorAddonID).map((addonId) => ({
@@ -48,20 +48,20 @@ const initialValues: OrderFormSchema = {
   serviceLocation: ServiceLocation.HustleAutoHome,
 };
 
-function useOrderForm() {
+function useQuoteForm() {
   const [storedUserInput, setStoredUserInput] =
-    useSessionStorage<OrderFormSchema>('userInput', initialValues);
+    useSessionStorage<QuoteFormSchema>('userInput', initialValues);
 
-  const form = useForm<OrderFormSchema>({
-    resolver: zodResolver(orderFormSchema),
-    defaultValues: orderFormSchema.safeParse(storedUserInput).success
+  const form = useForm<QuoteFormSchema>({
+    resolver: zodResolver(quoteFormSchema),
+    defaultValues: quoteFormSchema.safeParse(storedUserInput).success
       ? storedUserInput
       : initialValues,
   });
 
   useEffect(() => {
     const subscription = form.watch((value) =>
-      setStoredUserInput(value as OrderFormSchema),
+      setStoredUserInput(value as QuoteFormSchema),
     );
     return () => subscription.unsubscribe();
   }, [form, form.watch, setStoredUserInput]);
@@ -69,6 +69,6 @@ function useOrderForm() {
   return form;
 }
 
-export default useOrderForm;
+export default useQuoteForm;
 
-export { initialValues, type OrderFormSchema };
+export { initialValues, type QuoteFormSchema };

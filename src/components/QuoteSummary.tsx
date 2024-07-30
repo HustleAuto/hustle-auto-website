@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import useOrderForm from '@/hooks/useOrderForm';
+import useQuoteForm from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 import { Price } from '@/Price';
@@ -27,8 +27,8 @@ const sum = (numbers: number[]) => {
   return total;
 };
 
-export default function OrderSummary() {
-  const { watch } = useOrderForm();
+export default function QuoteSummary() {
+  const { watch } = useQuoteForm();
 
   const field = watch();
 
@@ -103,11 +103,11 @@ export default function OrderSummary() {
         <CardHeader className="bg-secondary">
           <div className="flex justify-between items-center">
             <div>
-              <CardTitle className="text-xl">Order Summary</CardTitle>
+              <CardTitle className="text-xl">Quote Summary</CardTitle>
             </div>
             <div>
               <Button variant="outline" size="icon" asChild>
-                <Link href="/services">
+                <Link href="/quote">
                   <Pencil2Icon className="h-4 w-4" />
                 </Link>
               </Button>
