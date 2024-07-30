@@ -32,15 +32,6 @@ export default function QuoteSummary() {
 
   const field = watch();
 
-  // Don't show the summary if none of the services are selected
-  if (
-    field.interiorPackage === Service.InteriorPackageID.None &&
-    field.exteriorPackage === Service.ExteriorPackageID.None &&
-    field.ceramicCoatingPackage === Service.CeramicCoatingPackageID.None
-  ) {
-    return <></>;
-  }
-
   const summary = {
     carType: {
       label: field.carType,
@@ -96,6 +87,37 @@ export default function QuoteSummary() {
           .map((addon) => Price.CeramicCoatingAddon[addon.addonId]),
       ),
   );
+
+  // show message when no services are selected
+  if (
+    field.interiorPackage === Service.InteriorPackageID.None &&
+    field.exteriorPackage === Service.ExteriorPackageID.None &&
+    field.ceramicCoatingPackage === Service.CeramicCoatingPackageID.None
+  ) {
+    return (
+      <>
+        <Card>
+          <CardHeader className="bg-secondary">
+            <div className="flex justify-between items-center">
+              <div>
+                <CardTitle className="text-xl">Quote Summary</CardTitle>
+              </div>
+              <div>
+                <Button variant="outline" size="icon" asChild>
+                  <Link href="/quote">
+                    <Pencil2Icon className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="p-6 space-y-5">
+            <p className="text-muted-foreground">No services selected</p>
+          </CardContent>
+        </Card>
+      </>
+    );
+  }
 
   return (
     <div>
