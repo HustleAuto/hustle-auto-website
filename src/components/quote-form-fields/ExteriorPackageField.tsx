@@ -35,7 +35,7 @@ export default function ExteriorPackageField() {
     )
     .map((exteriorPackage) => ({
       value: exteriorPackage,
-      label: `${exteriorPackage} (${formatPrice(Price.Exterior[exteriorPackage][carType])})`,
+      label: `${exteriorPackage} (${carType}) (${formatPrice(Price.Exterior[exteriorPackage][carType])})`,
     }));
 
   return (
