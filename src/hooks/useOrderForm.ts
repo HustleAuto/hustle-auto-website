@@ -49,22 +49,22 @@ const initialValues: OrderFormSchema = {
 };
 
 function useOrderForm() {
-  const [defaultValues, setDefaultValues] = useSessionStorage<OrderFormSchema>(
-    'defaultValues',
-    initialValues,
-  );
+  const [storedUserInput, setStoredUserInput] =
+    useSessionStorage<OrderFormSchema>('userInput', initialValues);
 
   const form = useForm<OrderFormSchema>({
     resolver: zodResolver(orderFormSchema),
-    defaultValues: defaultValues,
+    defaultValues: orderFormSchema.safeParse(storedUserInput).success
+      ? storedUserInput
+      : initialValues,
   });
 
   useEffect(() => {
     const subscription = form.watch((value) =>
-      setDefaultValues(value as OrderFormSchema),
+      setStoredUserInput(value as OrderFormSchema),
     );
     return () => subscription.unsubscribe();
-  }, [form, form.watch, setDefaultValues]);
+  }, [form, form.watch, setStoredUserInput]);
 
   return form;
 }
