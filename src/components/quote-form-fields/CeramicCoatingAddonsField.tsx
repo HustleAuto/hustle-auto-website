@@ -29,24 +29,6 @@ export default function CeramicCoatingAddonsField() {
     [Addon.WheelCoating]: `${Addon.WheelCoating} (${formatPrice(Price.CeramicCoatingAddon[Addon.WheelCoating])})`,
   };
 
-  // business logic - set all addons to false when the ceramic coating package is none
-  useEffect(() => {
-    const subscription = form.watch((value, { name }) => {
-      // only watch for changes to the ceramic coating package
-      if (name !== 'ceramicCoatingPackage') return;
-
-      // set all addons to false when the ceramic coating package is none
-      if (
-        value.ceramicCoatingPackage === Service.CeramicCoatingPackageID.None
-      ) {
-        value.ceramicCoatingAddons?.forEach((addon, index) => {
-          form.setValue(`ceramicCoatingAddons.${index}.selected`, false);
-        });
-      }
-    });
-    return () => subscription.unsubscribe();
-  }, [form, form.watch, form.setValue]);
-
   // disable addon field when the ceramic package is none
   const isDisabled =
     form.watch('ceramicCoatingPackage') ===

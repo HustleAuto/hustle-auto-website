@@ -28,22 +28,6 @@ export default function InteriorAddonsField() {
     [Addon.PetHairRemoval]: `${Addon.PetHairRemoval} (${formatPrice(Price.InteriorAddon[Addon.PetHairRemoval])})`,
   };
 
-  // business logic - set all addons to false when the interior package is none
-  useEffect(() => {
-    const subscription = form.watch((value, { name }) => {
-      // only watch for changes to the interior package
-      if (name !== 'interiorPackage') return;
-
-      // set all addons to false when the interior package is none
-      if (value.interiorPackage === Service.InteriorPackageID.None) {
-        value.interiorAddons?.forEach((addon, index) => {
-          form.setValue(`interiorAddons.${index}.selected`, false);
-        });
-      }
-    });
-    return () => subscription.unsubscribe();
-  }, [form, form.watch, form.setValue]);
-
   // disable addon field when the interior package is none
   const isDisabled =
     form.watch('interiorPackage') === Service.InteriorPackageID.None;

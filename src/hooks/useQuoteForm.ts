@@ -54,17 +54,47 @@ function useQuoteForm() {
 
   const form = useForm<QuoteFormSchema>({
     resolver: zodResolver(quoteFormSchema),
+    // Default value is the stored user input
+    // If stored user input is invalid, default value is the initial value
     defaultValues: quoteFormSchema.safeParse(storedUserInput).success
       ? storedUserInput
       : initialValues,
   });
 
+  // Store user input every time it changes
   useEffect(() => {
     const subscription = form.watch((value) =>
       setStoredUserInput(value as QuoteFormSchema),
     );
     return () => subscription.unsubscribe();
   }, [form, form.watch, setStoredUserInput]);
+
+  // Business logic for form
+  useEffect(() => {
+    const subscription = form.watch((value, { name }) => {
+      // When the interior package is set to "none", deselect all interior addons.
+      if (
+        name === 'interiorPackage' &&
+        value.interiorPackage === Service.InteriorPackageID.None
+      ) {
+        value.interiorAddons?.forEach((addon, index) => {
+          form.setValue(`interiorAddons.${index}.selected`, false);
+        });
+      }
+
+      // When the ceramic coating package is set to "none", deselect all ceramic coating addons.
+      if (
+        name === 'ceramicCoatingPackage' &&
+        value.ceramicCoatingPackage === Service.CeramicCoatingPackageID.None
+      ) {
+        value.ceramicCoatingAddons?.forEach((addon, index) => {
+          form.setValue(`ceramicCoatingAddons.${index}.selected`, false);
+        });
+      }
+    });
+
+    return () => subscription.unsubscribe();
+  }, [form, form.watch, form.setValue]);
 
   return form;
 }
