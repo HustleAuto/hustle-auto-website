@@ -3,11 +3,10 @@ import Link from 'next/link';
 
 import FacebookLogo from '@/components/images/FacebookLogo';
 import GoogleLogo from '@/components/images/GoogleLogo';
+import PageSection from '@/components/PageSection';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import hustleConstants from '@/hustleConstants';
-
-import PageSection from './PageSection';
-import { Separator } from './ui/separator';
 
 export default function Footer() {
   const { COMPANY } = hustleConstants;

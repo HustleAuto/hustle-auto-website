@@ -17,7 +17,6 @@ import {
 } from '@/components/ui/select';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
-import { CarType } from '@/models/CarType';
 import { ServiceLocation } from '@/models/ServiceLocation';
 import { Price } from '@/Price';
 

@@ -3,6 +3,7 @@
 import { Pencil2Icon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -15,8 +16,6 @@ import useQuoteForm from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 import { Price } from '@/Price';
-
-import { Button } from './ui/button';
 
 const sum = (numbers: number[]) => {
   let total = 0;

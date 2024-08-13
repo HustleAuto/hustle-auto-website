@@ -1,12 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
+import HustleAutoLogo from '@/components/images/HustleAutoLogo';
 import { cn } from '@/lib/utils';
-
-import HustleAutoLogo from './images/HustleAutoLogo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
