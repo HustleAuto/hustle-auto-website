@@ -35,7 +35,7 @@ export default function CeramicCoatingPackage() {
     )
     .map((ceramicCoatingPackage) => ({
       value: ceramicCoatingPackage,
-      label: `${ceramicCoatingPackage} (${carType}) (${formatPrice(Price.CeramicCoating[ceramicCoatingPackage][carType])})`,
+      label: `${ceramicCoatingPackage} (${carType}) (${formatPrice(Price.CeramicCoatingPackage[ceramicCoatingPackage][carType])})`,
     }));
 
   return (

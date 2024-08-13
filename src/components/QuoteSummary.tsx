@@ -39,7 +39,9 @@ export default function QuoteSummary() {
     interiorPackage: field.interiorPackage !==
       Service.InteriorPackageID.None && {
       label: `${field.interiorPackage} (${field.carType})`,
-      price: formatPrice(Price.Interior[field.interiorPackage][field.carType]),
+      price: formatPrice(
+        Price.InteriorPackage[field.interiorPackage][field.carType],
+      ),
     },
     interiorAddons: field.interiorAddons
       .filter((addon) => addon.selected)
@@ -50,13 +52,15 @@ export default function QuoteSummary() {
     exteriorPackage: field.exteriorPackage !==
       Service.ExteriorPackageID.None && {
       label: `${field.exteriorPackage} (${field.carType})`,
-      price: formatPrice(Price.Exterior[field.exteriorPackage][field.carType]),
+      price: formatPrice(
+        Price.ExteriorPackage[field.exteriorPackage][field.carType],
+      ),
     },
     ceramicCoatingPackage: field.ceramicCoatingPackage !==
       Service.CeramicCoatingPackageID.None && {
       label: `${field.ceramicCoatingPackage} (${field.carType})`,
       price: formatPrice(
-        Price.CeramicCoating[field.ceramicCoatingPackage][field.carType],
+        Price.CeramicCoatingPackage[field.ceramicCoatingPackage][field.carType],
       ),
     },
     ceramicCoatingAddons: field.ceramicCoatingAddons
@@ -72,9 +76,9 @@ export default function QuoteSummary() {
   };
 
   const total = formatPrice(
-    Price.Interior[field.interiorPackage][field.carType] +
-      Price.Exterior[field.exteriorPackage][field.carType] +
-      Price.CeramicCoating[field.ceramicCoatingPackage][field.carType] +
+    Price.InteriorPackage[field.interiorPackage][field.carType] +
+      Price.ExteriorPackage[field.exteriorPackage][field.carType] +
+      Price.CeramicCoatingPackage[field.ceramicCoatingPackage][field.carType] +
       Price.ServiceLocation[field.serviceLocation] +
       sum(
         field.interiorAddons

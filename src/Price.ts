@@ -3,7 +3,7 @@ import { Service } from './models/Service';
 import { ServiceLocation } from './models/ServiceLocation';
 
 const Price = {
-  Interior: {
+  InteriorPackage: {
     [Service.InteriorPackageID.None]: {
       [CarType.Sedan]: 0,
       [CarType.MidSized]: 0,
@@ -24,7 +24,7 @@ const Price = {
     [Service.InteriorAddonID.OdorRemoval]: 40,
     [Service.InteriorAddonID.PetHairRemoval]: 100,
   },
-  Exterior: {
+  ExteriorPackage: {
     [Service.ExteriorPackageID.None]: {
       [CarType.Sedan]: 0,
       [CarType.MidSized]: 0,
@@ -46,7 +46,7 @@ const Price = {
       [CarType.FullSized]: 450,
     },
   },
-  CeramicCoating: {
+  CeramicCoatingPackage: {
     [Service.CeramicCoatingPackageID.None]: {
       [CarType.Sedan]: 0,
       [CarType.MidSized]: 0,
