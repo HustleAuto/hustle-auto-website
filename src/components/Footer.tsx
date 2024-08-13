@@ -66,7 +66,7 @@ export default function Footer() {
               </li>
               <li className="pt-4">
                 <Button variant="outline" className="dark" asChild>
-                  <Link href="#">Contact Us Form</Link>
+                  <Link href="/contact-us">Contact Us Form</Link>
                 </Button>
               </li>
             </ul>
