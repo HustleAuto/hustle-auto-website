@@ -1,6 +1,7 @@
 'use client';
 
 import { ChevronRightIcon } from '@radix-ui/react-icons';
+import { useRouter } from 'next/navigation';
 
 import QuoteFormField from '@/components/quote-form-fields';
 import { Button } from '@/components/ui/button';
@@ -10,9 +11,11 @@ import { Service } from '@/models/Service';
 
 export default function InteriorServicesForm() {
   const form = useQuoteForm();
+  const router = useRouter();
 
   function onSubmit(values: QuoteFormSchema) {
     console.log(values);
+    router.push('/contact-us');
   }
 
   function onReset() {

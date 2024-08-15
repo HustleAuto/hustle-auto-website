@@ -11,7 +11,6 @@ import {
 import { RadioGroup } from '@/components/ui/radio-group';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
-import { CarType } from '@/models/CarType';
 import { ServiceLocation } from '@/models/ServiceLocation';
 import { Price } from '@/Price';
 

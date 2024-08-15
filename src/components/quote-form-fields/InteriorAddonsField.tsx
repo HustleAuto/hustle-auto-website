@@ -7,6 +7,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
+  FormMessage,
 } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
@@ -28,34 +29,31 @@ export default function InteriorAddonsField() {
     [Addon.PetHairRemoval]: `${Addon.PetHairRemoval} (${formatPrice(Price.InteriorAddon[Addon.PetHairRemoval])})`,
   };
 
-  // disable addon field when the interior package is none
-  const isDisabled =
-    form.watch('interiorPackage') === Service.InteriorPackageID.None;
-
-  // don't render addon field if it is disabled
-  if (isDisabled) {
-    return <></>;
-  }
-
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       <Label className="block">Select Interior Add-ons</Label>
-      <ul>
+      <ul className="space-y-1">
         {fields.map((field, index) => (
           <li key={field.id}>
             <FormField
               control={form.control}
               name={`interiorAddons.${index}.selected`}
               render={({ field: checkboxField }) => (
-                <FormItem className="space-x-2">
-                  <FormControl>
-                    <Checkbox
-                      checked={checkboxField.value}
-                      onCheckedChange={checkboxField.onChange}
-                      disabled={isDisabled}
-                    />
-                  </FormControl>
-                  <FormLabel>{label[field.addonId]}</FormLabel>
+                <FormItem>
+                  <div className="space-x-2 flex items-start">
+                    <FormControl>
+                      <Checkbox
+                        checked={checkboxField.value}
+                        onCheckedChange={checkboxField.onChange}
+                      />
+                    </FormControl>
+                    <FormLabel>
+                      <p>{label[field.addonId]}</p>
+                      <p className="my-2">
+                        <FormMessage />
+                      </p>
+                    </FormLabel>
+                  </div>
                 </FormItem>
               )}
             />

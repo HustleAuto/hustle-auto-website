@@ -1,5 +1,6 @@
 import { useFieldArray, useFormContext } from 'react-hook-form';
 
+import { Card, CardHeader } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
   FormControl,
@@ -8,13 +9,11 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
+import { Label } from '@/components/ui/label';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 import { Price } from '@/Price';
-
-import { Card, CardHeader } from '../ui/card';
-import { Label } from '../ui/label';
 
 export default function InteriorAddonsFieldExpanded() {
   const form = useFormContext<QuoteFormSchema>();
@@ -58,8 +57,11 @@ export default function InteriorAddonsFieldExpanded() {
                     <div className="pl-6">
                       <CardHeader>
                         <p>{labels[field.addonId]}</p>
-                        <p className="typography-muted mt-2">
+                        <p className="typography-muted">
                           {descriptions[field.addonId]}
+                        </p>
+                        <p>
+                          <FormMessage />
                         </p>
                       </CardHeader>
                     </div>
