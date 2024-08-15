@@ -21,9 +21,9 @@ export default function InteriorPackageFieldExpanded() {
   const carType = form.watch('carType');
   const labels = {
     [Service.InteriorPackageID.Regular]:
-      `${Service.InteriorPackageID.Regular} (${formatPrice(Price.InteriorPackage[Service.InteriorPackageID.Regular][carType])})`,
+      `${Service.InteriorPackageID.Regular} (${carType}) (${formatPrice(Price.InteriorPackage[Service.InteriorPackageID.Regular][carType])})`,
     [Service.InteriorPackageID.Deep]:
-      `${Service.InteriorPackageID.Deep} (${formatPrice(Price.InteriorPackage[Service.InteriorPackageID.Deep][carType])})`,
+      `${Service.InteriorPackageID.Deep} (${carType}) (${formatPrice(Price.InteriorPackage[Service.InteriorPackageID.Deep][carType])})`,
   };
 
   return (

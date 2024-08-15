@@ -24,7 +24,8 @@ export default function InteriorServicesForm() {
       <Form {...form}>
         <form onReset={onReset} onSubmit={form.handleSubmit(onSubmit)}>
           <div className="space-y-8">
-            <section>
+            <section className="space-y-8">
+              <QuoteFormField.CarTypeExpanded />
               <QuoteFormField.InteriorPackageExpanded />
               <QuoteFormField.InteriorAddonsExpanded />
             </section>
