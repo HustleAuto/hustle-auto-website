@@ -3,6 +3,7 @@ import CeramicCoatingAddonsField from './CeramicCoatingAddonsField';
 import CeramicCoatingPackageField from './CeramicCoatingPackageField';
 import ExteriorPackageField from './ExteriorPackageField';
 import InteriorAddonsField from './InteriorAddonsField';
+import InteriorAddonsFieldExpanded from './InteriorAddonsFieldExpanded';
 import InteriorPackageField from './InteriorPackageField';
 import InteriorPackageFieldExpanded from './InteriorPackageFieldExpanded';
 import ServiceLocationField from './ServiceLocationField';
@@ -12,6 +13,7 @@ const QuoteFormField = {
   InteriorPackage: InteriorPackageField,
   InteriorPackageExpanded: InteriorPackageFieldExpanded,
   InteriorAddons: InteriorAddonsField,
+  InteriorAddonsExpanded: InteriorAddonsFieldExpanded,
   ExteriorPackage: ExteriorPackageField,
   CeramicCoatingPackage: CeramicCoatingPackageField,
   CeramicCoatingAddons: CeramicCoatingAddonsField,

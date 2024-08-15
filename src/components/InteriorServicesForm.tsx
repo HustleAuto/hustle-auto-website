@@ -26,6 +26,7 @@ export default function InteriorServicesForm() {
           <div className="space-y-8">
             <section>
               <QuoteFormField.InteriorPackageExpanded />
+              <QuoteFormField.InteriorAddonsExpanded />
             </section>
 
             <section className="flex justify-between">
