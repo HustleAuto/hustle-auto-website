@@ -28,6 +28,7 @@ export default function InteriorServicesForm() {
               <QuoteFormField.CarTypeExpanded />
               <QuoteFormField.InteriorPackageExpanded />
               <QuoteFormField.InteriorAddonsExpanded />
+              <QuoteFormField.ServiceLocationExpanded />
             </section>
 
             <section className="flex justify-between">
@@ -40,7 +41,7 @@ export default function InteriorServicesForm() {
                 icon={ChevronRightIcon}
                 iconPlacement="right"
               >
-                Submit
+                Continue
               </Button>
             </section>
           </div>
