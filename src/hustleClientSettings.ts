@@ -10,6 +10,12 @@ const hustleClientSettingsSchema = z
     BEHOLD: z.object({
       FEED_ID: z.string().min(1),
     }),
+    TIDIO: z.object({
+      SCRIPT_ID: z.string().min(1),
+    }),
+    ELFSIGHT: z.object({
+      WIDGET_ID: z.string().min(1),
+    }),
   })
   .strict();
 
@@ -22,6 +28,12 @@ const getHustleSettings = (): HustleClientSettings => {
     },
     BEHOLD: {
       FEED_ID: process.env['NEXT_PUBLIC_BEHOLD_FEED_ID'],
+    },
+    TIDIO: {
+      SCRIPT_ID: process.env['NEXT_PUBLIC_TIDIO_SCRIPT_ID'],
+    },
+    ELFSIGHT: {
+      WIDGET_ID: process.env['NEXT_PUBLIC_ELFSIGHT_WIDGET_ID'],
     },
   });
 };

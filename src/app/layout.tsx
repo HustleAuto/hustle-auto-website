@@ -1,4 +1,5 @@
 import { GoogleTagManager } from '@next/third-parties/google';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
@@ -44,6 +45,7 @@ export default async function RootLayout({
         </ContentfulContextProvider>
 
         <TidioWidget />
+        <VercelAnalytics />
       </body>
     </html>
   );
