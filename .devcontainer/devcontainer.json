@@ -32,7 +32,8 @@
         "streetsidesoftware.code-spell-checker", // Spell checker
         "usernamehw.errorlens", // Error lens
         "vivaxy.vscode-conventional-commits", // Conventional commits
-        "yzhang.markdown-all-in-one" // Markdown support
+        "yzhang.markdown-all-in-one", // Markdown support
+        "WallabyJs.console-ninja" // View runtime console output in VSCode
       ]
     }
   }
