@@ -2,6 +2,7 @@ import BeholdWidget from '@behold/react';
 
 import HustleAutoLogo from '@/components/images/HustleAutoLogo';
 import PageSection from '@/components/PageSection';
+import ElfsightWidget from '@/components/quote-form-fields/ElfsightWidget';
 import { Button } from '@/components/ui/button';
 import { getHustleClientSettings } from '@/hustleClientSettings';
 
@@ -32,6 +33,10 @@ export default function Home() {
 
       <PageSection className="bg-secondary py-16">
         <BeholdWidget feedId={hustleSettings.BEHOLD.FEED_ID} />
+      </PageSection>
+
+      <PageSection>
+        <ElfsightWidget widgetId={hustleSettings.ELFSIGHT.WIDGET_ID} />
       </PageSection>
     </main>
   );

@@ -17,6 +17,7 @@ words:
   - decompile
   - devcontainer
   - devcontainers
+  - elfsight
   - fullsize
   - gifs
   - hustleauto
@@ -27,6 +28,7 @@ words:
   - Retargeting
   - Skyview
   - tailwindcss
+  - tidio
   - usehooks
 ignoreWords: []
 import: []

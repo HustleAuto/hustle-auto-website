@@ -2,11 +2,11 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 import type { Metadata } from 'next';
-import { unstable_cache } from 'next/cache';
 import './globals.css';
 
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import TidioWidget from '@/components/quote-form-fields/TidioWidget';
 import { fetchPrices } from '@/contentful/fetchPrices';
 import { ContentfulContextProvider } from '@/contexts/contentful-context';
 import { getHustleClientSettings } from '@/hustleClientSettings';
@@ -42,6 +42,8 @@ export default async function RootLayout({
           {children}
           <Footer />
         </ContentfulContextProvider>
+
+        <TidioWidget />
       </body>
     </html>
   );
