@@ -11,7 +11,7 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { RadioGroup } from '@/components/ui/radio-group';
-import useContentfulContext from '@/contexts/contentful-context';
+import { useContentfulContext } from '@/hooks/useContentfulContext';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { cn, formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';

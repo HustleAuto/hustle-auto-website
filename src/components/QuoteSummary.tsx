@@ -2,7 +2,6 @@
 
 import { Pencil2Icon } from '@radix-ui/react-icons';
 import Link from 'next/link';
-import { useContext } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -13,7 +12,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import ContentfulContext from '@/contexts/contentful-context';
+import { useContentfulContext } from '@/hooks/useContentfulContext';
 import useQuoteForm from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
@@ -28,14 +27,10 @@ const sum = (numbers: number[]) => {
 };
 
 export default function QuoteSummary() {
-  const contentfulContext = useContext(ContentfulContext);
-  const { watch } = useQuoteForm();
-
-  if (contentfulContext == null) {
-    return null;
-  }
-
+  const contentfulContext = useContentfulContext();
   const price = contentfulContext.prices;
+
+  const { watch } = useQuoteForm();
 
   const field = watch();
 

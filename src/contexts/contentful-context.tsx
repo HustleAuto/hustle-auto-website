@@ -1,26 +1,34 @@
 'use client';
 
+import { createContext } from 'react';
+
 import { fetchPrices } from '@/contentful/fetchPrices';
-import { createRequiredContext } from '@/lib/createRequiredContext';
 
 interface ContentfulContextValue {
   prices: Awaited<ReturnType<typeof fetchPrices>>;
 }
 
-const [Provider, useContentfulContext] =
-  createRequiredContext<ContentfulContextValue>();
+const EMPTY_CONTEXT = Symbol();
+
+const ContentfulContext = createContext<
+  ContentfulContextValue | typeof EMPTY_CONTEXT
+>(EMPTY_CONTEXT);
 
 interface ContentfulProviderProps {
   children: React.ReactNode;
   prices: Awaited<ReturnType<typeof fetchPrices>>;
 }
 
-async function ContentfulContextProvider({
+function ContentfulContextProvider({
   children,
   prices,
 }: ContentfulProviderProps) {
-  return <Provider value={{ prices }}>{children}</Provider>;
+  return (
+    <ContentfulContext.Provider value={{ prices }}>
+      {children}
+    </ContentfulContext.Provider>
+  );
 }
 
-export default useContentfulContext;
-export { ContentfulContextProvider };
+export default ContentfulContext;
+export { ContentfulContextProvider, EMPTY_CONTEXT };
