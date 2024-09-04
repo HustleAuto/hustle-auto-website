@@ -16,20 +16,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import ContentfulContext from '@/contexts/contentful-context';
+import useContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { ServiceLocation } from '@/models/ServiceLocation';
 
 export default function ServiceLocationField() {
-  const contentfulContext = useContext(ContentfulContext);
+  const contentfulContext = useContentfulContext();
+  const price = contentfulContext.prices;
+
   const form = useFormContext<QuoteFormSchema>();
 
   if (contentfulContext == null) {
     return null;
   }
-
-  const price = contentfulContext.prices;
 
   const selectOptions = Object.values(ServiceLocation).map(
     (serviceLocation) => ({

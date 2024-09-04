@@ -10,20 +10,16 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { RadioGroup } from '@/components/ui/radio-group';
-import ContentfulContext from '@/contexts/contentful-context';
+import useContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { ServiceLocation } from '@/models/ServiceLocation';
 
 export default function ServiceLocationFieldExpanded() {
-  const contentfulContext = useContext(ContentfulContext);
-  const form = useFormContext<QuoteFormSchema>();
-
-  if (contentfulContext == null) {
-    return null;
-  }
-
+  const contentfulContext = useContentfulContext();
   const price = contentfulContext.prices;
+
+  const form = useFormContext<QuoteFormSchema>();
 
   const labels = {
     [ServiceLocation.HustleAutoHome]: `${ServiceLocation.HustleAutoHome} (${formatPrice(price.ServiceLocation[ServiceLocation.HustleAutoHome])})`,

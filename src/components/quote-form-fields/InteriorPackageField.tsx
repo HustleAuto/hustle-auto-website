@@ -19,20 +19,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import ContentfulContext from '@/contexts/contentful-context';
+import useContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 
 export default function InteriorPackageField() {
-  const contentfulContext = useContext(ContentfulContext);
-  const form = useFormContext<QuoteFormSchema>();
-
-  if (contentfulContext == null) {
-    return null;
-  }
-
+  const contentfulContext = useContentfulContext();
   const price = contentfulContext.prices;
+
+  const form = useFormContext<QuoteFormSchema>();
 
   const carType = form.watch('carType');
 

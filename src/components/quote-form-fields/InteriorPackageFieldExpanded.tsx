@@ -11,20 +11,16 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { RadioGroup } from '@/components/ui/radio-group';
-import ContentfulContext from '@/contexts/contentful-context';
+import useContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { cn, formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 
 export default function InteriorPackageFieldExpanded() {
-  const contentfulContext = useContext(ContentfulContext);
-  const form = useFormContext<QuoteFormSchema>();
-
-  if (contentfulContext == null) {
-    return null;
-  }
-
+  const contentfulContext = useContentfulContext();
   const price = contentfulContext.prices;
+
+  const form = useFormContext<QuoteFormSchema>();
 
   const carType = form.watch('carType');
   const labels = {

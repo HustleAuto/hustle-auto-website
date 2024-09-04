@@ -10,24 +10,20 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
-import ContentfulContext from '@/contexts/contentful-context';
+import useContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
 
 export default function InteriorAddonsField() {
-  const contentfulContext = useContext(ContentfulContext);
+  const contentfulContext = useContentfulContext();
+  const price = contentfulContext.prices;
+
   const form = useFormContext<QuoteFormSchema>();
   const { fields } = useFieldArray({
     control: form.control,
     name: 'interiorAddons',
   });
-
-  if (contentfulContext == null) {
-    return null;
-  }
-
-  const price = contentfulContext.prices;
 
   // extract Addon type for readability of label
   const Addon = Service.InteriorAddonID;
