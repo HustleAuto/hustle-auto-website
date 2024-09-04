@@ -1,8 +1,8 @@
 import BeholdWidget from '@behold/react';
 
+import ElfsightWidget from '@/components/ElfsightWidget';
 import HustleAutoLogo from '@/components/images/HustleAutoLogo';
 import PageSection from '@/components/PageSection';
-import ElfsightWidget from '@/components/quote-form-fields/ElfsightWidget';
 import { Button } from '@/components/ui/button';
 import { getHustleClientSettings } from '@/hustleClientSettings';
 

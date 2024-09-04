@@ -7,7 +7,7 @@ import './globals.css';
 
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import TidioWidget from '@/components/quote-form-fields/TidioWidget';
+import TidioWidget from '@/components/TidioWidget';
 import { fetchPrices } from '@/contentful/fetchPrices';
 import { ContentfulContextProvider } from '@/contexts/contentful-context';
 import { getHustleClientSettings } from '@/hustleClientSettings';
