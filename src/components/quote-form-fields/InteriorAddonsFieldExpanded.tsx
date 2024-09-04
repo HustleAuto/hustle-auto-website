@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 
 import { Card, CardHeader } from '@/components/ui/card';
@@ -10,22 +11,29 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
+import ContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
-import { Price } from '@/Price';
 
 export default function InteriorAddonsFieldExpanded() {
+  const contentfulContext = useContext(ContentfulContext);
   const form = useFormContext<QuoteFormSchema>();
   const { fields } = useFieldArray({
     control: form.control,
     name: 'interiorAddons',
   });
 
+  if (contentfulContext == null) {
+    return null;
+  }
+
+  const price = contentfulContext.prices;
+
   const Addon = Service.InteriorAddonID;
   const labels = {
-    [Addon.OdorRemoval]: `${Addon.OdorRemoval} (${formatPrice(Price.InteriorAddon[Addon.OdorRemoval])})`,
-    [Addon.PetHairRemoval]: `${Addon.PetHairRemoval} (${formatPrice(Price.InteriorAddon[Addon.PetHairRemoval])})`,
+    [Addon.OdorRemoval]: `${Addon.OdorRemoval} (${formatPrice(price.InteriorAddon[Addon.OdorRemoval])})`,
+    [Addon.PetHairRemoval]: `${Addon.PetHairRemoval} (${formatPrice(price.InteriorAddon[Addon.PetHairRemoval])})`,
   };
   const descriptions = {
     [Addon.OdorRemoval]:

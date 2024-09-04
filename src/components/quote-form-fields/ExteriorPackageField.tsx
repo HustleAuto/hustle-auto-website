@@ -1,5 +1,6 @@
 import { ExternalLinkIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
+import { useContext } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
@@ -18,13 +19,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import ContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
-import { Price } from '@/Price';
 
 export default function ExteriorPackageField() {
+  const contentfulContext = useContext(ContentfulContext);
   const form = useFormContext<QuoteFormSchema>();
+
+  if (contentfulContext == null) {
+    return null;
+  }
+
+  const price = contentfulContext.prices;
 
   const carType = form.watch('carType');
 
@@ -35,7 +43,7 @@ export default function ExteriorPackageField() {
     )
     .map((exteriorPackage) => ({
       value: exteriorPackage,
-      label: `${exteriorPackage} (${carType}) (${formatPrice(Price.ExteriorPackage[exteriorPackage][carType])})`,
+      label: `${exteriorPackage} (${carType}) (${formatPrice(price.ExteriorPackage[exteriorPackage][carType])})`,
     }));
 
   return (

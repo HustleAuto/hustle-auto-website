@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import CheckboxListItem from '@/components/CheckboxListItem';
@@ -10,20 +11,27 @@ import {
   FormLabel,
 } from '@/components/ui/form';
 import { RadioGroup } from '@/components/ui/radio-group';
+import ContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { cn, formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
-import { Price } from '@/Price';
 
 export default function InteriorPackageFieldExpanded() {
+  const contentfulContext = useContext(ContentfulContext);
   const form = useFormContext<QuoteFormSchema>();
+
+  if (contentfulContext == null) {
+    return null;
+  }
+
+  const price = contentfulContext.prices;
 
   const carType = form.watch('carType');
   const labels = {
     [Service.InteriorPackageID.Regular]:
-      `${Service.InteriorPackageID.Regular} (${carType}) (${formatPrice(Price.InteriorPackage[Service.InteriorPackageID.Regular][carType])})`,
+      `${Service.InteriorPackageID.Regular} (${carType}) (${formatPrice(price.InteriorPackage[Service.InteriorPackageID.Regular][carType])})`,
     [Service.InteriorPackageID.Deep]:
-      `${Service.InteriorPackageID.Deep} (${carType}) (${formatPrice(Price.InteriorPackage[Service.InteriorPackageID.Deep][carType])})`,
+      `${Service.InteriorPackageID.Deep} (${carType}) (${formatPrice(price.InteriorPackage[Service.InteriorPackageID.Deep][carType])})`,
   };
 
   return (

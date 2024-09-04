@@ -3,10 +3,10 @@ import BeholdWidget from '@behold/react';
 import HustleAutoLogo from '@/components/images/HustleAutoLogo';
 import PageSection from '@/components/PageSection';
 import { Button } from '@/components/ui/button';
-import { getHustleSettings } from '@/hustleSettings';
+import { getHustleClientSettings } from '@/hustleClientSettings';
 
 export default function Home() {
-  const hustleSettings = getHustleSettings();
+  const hustleSettings = getHustleClientSettings();
 
   return (
     <main className="">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 
 import { Checkbox } from '@/components/ui/checkbox';
@@ -10,23 +10,30 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
+import ContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
-import { Price } from '@/Price';
 
 export default function InteriorAddonsField() {
+  const contentfulContext = useContext(ContentfulContext);
   const form = useFormContext<QuoteFormSchema>();
   const { fields } = useFieldArray({
     control: form.control,
     name: 'interiorAddons',
   });
 
+  if (contentfulContext == null) {
+    return null;
+  }
+
+  const price = contentfulContext.prices;
+
   // extract Addon type for readability of label
   const Addon = Service.InteriorAddonID;
   const label = {
-    [Addon.OdorRemoval]: `${Addon.OdorRemoval} (${formatPrice(Price.InteriorAddon[Addon.OdorRemoval])})`,
-    [Addon.PetHairRemoval]: `${Addon.PetHairRemoval} (${formatPrice(Price.InteriorAddon[Addon.PetHairRemoval])})`,
+    [Addon.OdorRemoval]: `${Addon.OdorRemoval} (${formatPrice(price.InteriorAddon[Addon.OdorRemoval])})`,
+    [Addon.PetHairRemoval]: `${Addon.PetHairRemoval} (${formatPrice(price.InteriorAddon[Addon.PetHairRemoval])})`,
   };
 
   return (

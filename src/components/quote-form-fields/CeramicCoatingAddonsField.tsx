@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useFieldArray, useFormContext } from 'react-hook-form';
 
 import { Checkbox } from '@/components/ui/checkbox';
@@ -10,24 +10,32 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Label } from '@/components/ui/label';
+import ContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
-import { Price } from '@/Price';
 
 export default function CeramicCoatingAddonsField() {
+  const contentfulContext = useContext(ContentfulContext);
+
   const form = useFormContext<QuoteFormSchema>();
   const { fields } = useFieldArray({
     control: form.control,
     name: 'ceramicCoatingAddons',
   });
 
+  if (contentfulContext == null) {
+    return null;
+  }
+
+  const price = contentfulContext.prices;
+
   // extract Addon type for readability of label
   const Addon = Service.CeramicCoatingAddonID;
 
   const label = {
-    [Addon.GlassCoating]: `${Addon.GlassCoating} (${formatPrice(Price.CeramicCoatingAddon[Addon.GlassCoating])})`,
-    [Addon.WheelCoating]: `${Addon.WheelCoating} (${formatPrice(Price.CeramicCoatingAddon[Addon.WheelCoating])})`,
+    [Addon.GlassCoating]: `${Addon.GlassCoating} (${formatPrice(price.CeramicCoatingAddon[Addon.GlassCoating])})`,
+    [Addon.WheelCoating]: `${Addon.WheelCoating} (${formatPrice(price.CeramicCoatingAddon[Addon.WheelCoating])})`,
   };
 
   return (

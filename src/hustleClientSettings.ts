@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const hustleSettingsSchema = z
+const hustleClientSettingsSchema = z
   .object({
     GOOGLE_TAG_MANAGER: z
       .object({
@@ -13,10 +13,10 @@ const hustleSettingsSchema = z
   })
   .strict();
 
-type HustleSettings = z.infer<typeof hustleSettingsSchema>;
+type HustleClientSettings = z.infer<typeof hustleClientSettingsSchema>;
 
-const getHustleSettings = (): HustleSettings => {
-  return hustleSettingsSchema.parse({
+const getHustleSettings = (): HustleClientSettings => {
+  return hustleClientSettingsSchema.parse({
     GOOGLE_TAG_MANAGER: {
       CONTAINER_ID: process.env['NEXT_PUBLIC_GOOGLE_TAG_MANAGER_CONTAINER_ID'],
     },
@@ -26,4 +26,7 @@ const getHustleSettings = (): HustleSettings => {
   });
 };
 
-export { getHustleSettings, type HustleSettings };
+export {
+  getHustleSettings as getHustleClientSettings,
+  type HustleClientSettings,
+};

@@ -2,6 +2,7 @@
 
 import { Pencil2Icon } from '@radix-ui/react-icons';
 import Link from 'next/link';
+import { useContext } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -12,10 +13,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import ContentfulContext from '@/contexts/contentful-context';
 import useQuoteForm from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { Service } from '@/models/Service';
-import { Price } from '@/Price';
 
 const sum = (numbers: number[]) => {
   let total = 0;
@@ -27,7 +28,14 @@ const sum = (numbers: number[]) => {
 };
 
 export default function QuoteSummary() {
+  const contentfulContext = useContext(ContentfulContext);
   const { watch } = useQuoteForm();
+
+  if (contentfulContext == null) {
+    return null;
+  }
+
+  const price = contentfulContext.prices;
 
   const field = watch();
 
@@ -39,55 +47,55 @@ export default function QuoteSummary() {
       Service.InteriorPackageID.None && {
       label: `${field.interiorPackage} (${field.carType})`,
       price: formatPrice(
-        Price.InteriorPackage[field.interiorPackage][field.carType],
+        price.InteriorPackage[field.interiorPackage][field.carType],
       ),
     },
     interiorAddons: field.interiorAddons
       .filter((addon) => addon.selected)
       .map((addon) => ({
         label: addon.addonId,
-        price: formatPrice(Price.InteriorAddon[addon.addonId]),
+        price: formatPrice(price.InteriorAddon[addon.addonId]),
       })),
     exteriorPackage: field.exteriorPackage !==
       Service.ExteriorPackageID.None && {
       label: `${field.exteriorPackage} (${field.carType})`,
       price: formatPrice(
-        Price.ExteriorPackage[field.exteriorPackage][field.carType],
+        price.ExteriorPackage[field.exteriorPackage][field.carType],
       ),
     },
     ceramicCoatingPackage: field.ceramicCoatingPackage !==
       Service.CeramicCoatingPackageID.None && {
       label: `${field.ceramicCoatingPackage} (${field.carType})`,
       price: formatPrice(
-        Price.CeramicCoatingPackage[field.ceramicCoatingPackage][field.carType],
+        price.CeramicCoatingPackage[field.ceramicCoatingPackage][field.carType],
       ),
     },
     ceramicCoatingAddons: field.ceramicCoatingAddons
       .filter((addon) => addon.selected)
       .map((addon) => ({
         label: addon.addonId,
-        price: formatPrice(Price.CeramicCoatingAddon[addon.addonId]),
+        price: formatPrice(price.CeramicCoatingAddon[addon.addonId]),
       })),
     serviceLocation: {
       label: field.serviceLocation,
-      price: formatPrice(Price.ServiceLocation[field.serviceLocation]),
+      price: formatPrice(price.ServiceLocation[field.serviceLocation]),
     },
   };
 
   const total = formatPrice(
-    Price.InteriorPackage[field.interiorPackage][field.carType] +
-      Price.ExteriorPackage[field.exteriorPackage][field.carType] +
-      Price.CeramicCoatingPackage[field.ceramicCoatingPackage][field.carType] +
-      Price.ServiceLocation[field.serviceLocation] +
+    price.InteriorPackage[field.interiorPackage][field.carType] +
+      price.ExteriorPackage[field.exteriorPackage][field.carType] +
+      price.CeramicCoatingPackage[field.ceramicCoatingPackage][field.carType] +
+      price.ServiceLocation[field.serviceLocation] +
       sum(
         field.interiorAddons
           .filter((addon) => addon.selected)
-          .map((addon) => Price.InteriorAddon[addon.addonId]),
+          .map((addon) => price.InteriorAddon[addon.addonId]),
       ) +
       sum(
         field.ceramicCoatingAddons
           .filter((addon) => addon.selected)
-          .map((addon) => Price.CeramicCoatingAddon[addon.addonId]),
+          .map((addon) => price.CeramicCoatingAddon[addon.addonId]),
       ),
   );
 

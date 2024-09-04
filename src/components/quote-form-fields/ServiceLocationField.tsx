@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import {
@@ -15,18 +16,25 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import ContentfulContext from '@/contexts/contentful-context';
 import { QuoteFormSchema } from '@/hooks/useQuoteForm';
 import { formatPrice } from '@/lib/utils';
 import { ServiceLocation } from '@/models/ServiceLocation';
-import { Price } from '@/Price';
 
 export default function ServiceLocationField() {
+  const contentfulContext = useContext(ContentfulContext);
   const form = useFormContext<QuoteFormSchema>();
+
+  if (contentfulContext == null) {
+    return null;
+  }
+
+  const price = contentfulContext.prices;
 
   const selectOptions = Object.values(ServiceLocation).map(
     (serviceLocation) => ({
       value: serviceLocation,
-      label: `${serviceLocation} (${formatPrice(Price.ServiceLocation[serviceLocation])})`,
+      label: `${serviceLocation} (${formatPrice(price.ServiceLocation[serviceLocation])})`,
     }),
   );
   return (
