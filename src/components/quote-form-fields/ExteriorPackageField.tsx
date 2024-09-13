@@ -1,6 +1,5 @@
 import { ExternalLinkIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
-import { useContext } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { Button } from '@/components/ui/button';
