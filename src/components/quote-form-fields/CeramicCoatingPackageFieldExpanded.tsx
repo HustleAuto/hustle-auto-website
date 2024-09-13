@@ -38,7 +38,9 @@ export default function CeramicCoatingPackageFieldExpanded() {
           <FormControl>
             <RadioGroup value={field.value} onValueChange={field.onChange}>
               <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-                <RadioCardGroupItem value={Service.InteriorPackageID.Regular}>
+                <RadioCardGroupItem
+                  value={Service.CeramicCoatingPackageID.FiveYear}
+                >
                   <CardHeader>
                     <CardTitle>
                       {labels[Service.CeramicCoatingPackageID.FiveYear]}
@@ -47,7 +49,9 @@ export default function CeramicCoatingPackageFieldExpanded() {
                   <CardContent>{fiveYearCeramicCoatingCardContent}</CardContent>
                 </RadioCardGroupItem>
 
-                <RadioCardGroupItem value={Service.InteriorPackageID.Deep}>
+                <RadioCardGroupItem
+                  value={Service.CeramicCoatingPackageID.SevenYear}
+                >
                   <CardHeader>
                     <CardTitle>
                       {labels[Service.CeramicCoatingPackageID.SevenYear]}
