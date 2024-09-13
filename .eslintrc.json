@@ -1,12 +1,14 @@
 {
-  "plugins": ["import"],
+  "plugins": ["import", "unused-imports"],
   "extends": [
     "next/core-web-vitals",
     "plugin:import/recommended", // for the recommended rule set
     "plugin:import/typescript", // for the typescript rule set
+
     "prettier"
   ],
   "rules": {
+    "unused-imports/no-unused-imports": "error",
     "sort-imports": [
       "error",
       {

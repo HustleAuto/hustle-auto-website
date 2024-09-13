@@ -1,7 +1,9 @@
 import CarTypeField from './CarTypeField';
 import CarTypeFieldExpanded from './CarTypeFieldExpanded';
 import CeramicCoatingAddonsField from './CeramicCoatingAddonsField';
+import CeramicCoatingAddonsFieldExpanded from './CeramicCoatingAddonsFieldExpanded';
 import CeramicCoatingPackageField from './CeramicCoatingPackageField';
+import CeramicCoatingPackageFieldExpanded from './CeramicCoatingPackageFieldExpanded';
 import ExteriorPackageField from './ExteriorPackageField';
 import ExteriorPackageFieldExpanded from './ExteriorPackageFieldExpanded';
 import InteriorAddonsField from './InteriorAddonsField';
@@ -21,6 +23,8 @@ const QuoteFormField = {
   ExteriorPackage: ExteriorPackageField,
   ExteriorPackageExpanded: ExteriorPackageFieldExpanded,
   CeramicCoatingPackage: CeramicCoatingPackageField,
+  CeramicCoatingPackageExpanded: CeramicCoatingPackageFieldExpanded,
+  CeramicCoatingAddonsExpanded: CeramicCoatingAddonsFieldExpanded,
   CeramicCoatingAddons: CeramicCoatingAddonsField,
   ServiceLocation: ServiceLocationField,
   ServiceLocationExpanded: ServiceLocationFieldExpanded,
